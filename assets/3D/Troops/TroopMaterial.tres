@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://w7kgauxpbysr"]
+
+[ext_resource type="Shader" uid="uid://wnuvysjsqs8j" path="res://shaders/troop_surface.gdshader" id="1_a3rik"]
+[ext_resource type="Texture2D" uid="uid://d21mmunl7u5or" path="res://assets/3D/Troops/TroopsModels_barbarian_texture.png" id="2_6pduo"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_a3rik")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("2_6pduo")
+shader_parameter/alpha = 1.0

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Decision" load_steps=2 format=3 uid="uid://bmq7y4blvpgw4"]
+
+[ext_resource type="Script" uid="uid://sj3scet3ab1d" path="res://data/skill_tree/decision.gd" id="1_gjp1l"]
+
+[resource]
+script = ExtResource("1_gjp1l")
+id = "defensive_stance"
+title = "Defensive Stance"
+description = "Guardians gain 20% damage reduction when stationary."
+cost = 3
+previous_decisions = Array[String](["guardian_training"])
+next_decisions = Array[String]([])
+mutually_exclusive_with = Array[String](["offensive_strike"])
+layer = 2
+is_unlocked = false
+is_completed = false
+is_locked_out = false
+tree_position = Vector2(-200, -400)
+metadata/_custom_type_script = "uid://sj3scet3ab1d"

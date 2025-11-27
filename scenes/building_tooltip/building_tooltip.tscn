@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1spwdhaqph72"]
+
+[ext_resource type="Texture2D" uid="uid://wxl68hk8ly55" path="res://assets/sprites/traits/fighter.png" id="1_l8l76"]
+[ext_resource type="Script" uid="uid://125gixv4mr37" path="res://scenes/building_tooltip/building_tooltip.gd" id="1_p3qdk"]
+[ext_resource type="FontFile" uid="uid://deocuwgh7emm" path="res://assets/theme/Pirou-Regular.otf" id="2_p3qdk"]
+
+[node name="BuildingTooltip" type="VBoxContainer"]
+offset_right = 180.0
+offset_bottom = 100.0
+script = ExtResource("1_p3qdk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TypeIcon" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_l8l76")
+stretch_mode = 2
+
+[node name="BuildingTitle" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Building Title"
+
+[node name="BuildingDescription" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_p3qdk")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Here's the detailed  description of the popup 
+window. Here's the detailed description of the popup window."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

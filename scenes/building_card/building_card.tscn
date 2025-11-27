@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkrcoc0voauis"]
+
+[ext_resource type="Script" uid="uid://c8r7qgcydukdb" path="res://scenes/building_card/building_card.gd" id="1_sjh82"]
+[ext_resource type="Texture2D" uid="uid://c4awhqfup7o2k" path="res://assets/sprites/gold.png" id="2_t0k7l"]
+[ext_resource type="Texture2D" uid="uid://cx1ivjobggp8n" path="res://assets/sprites/rogues.png" id="3_k3elr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1m3j"]
+resource_local_to_scene = true
+atlas = ExtResource("3_k3elr")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fp805"]
+resource_local_to_scene = true
+bg_color = Color(0.157654, 0.406494, 0.340123, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f82qf"]
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6m75r"]
+resource_local_to_scene = true
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.156863, 0.407843, 0.341176, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a7xfx"]
+font_size = 32
+
+[node name="BuildingCard" type="Button"]
+custom_minimum_size = Vector2(180, 150)
+offset_right = 180.0
+offset_bottom = 150.0
+script = ExtResource("1_sjh82")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0588235, 0.105882, 0.180392, 1)
+
+[node name="UnitIcon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -61.0
+offset_right = 42.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_h1m3j")
+stretch_mode = 5
+
+[node name="Bottom" type="Panel" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fp805")
+
+[node name="MarginContainer" type="MarginContainer" parent="Bottom"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bottom/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="GoldContainer" type="HBoxContainer" parent="Bottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="GoldIcon" type="TextureRect" parent="Bottom/MarginContainer/HBoxContainer/GoldContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_t0k7l")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GoldCost" type="Label" parent="Bottom/MarginContainer/HBoxContainer/GoldContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_f82qf")
+
+[node name="Border" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6m75r")
+
+[node name="BuildingName" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 6.0
+offset_top = 94.0
+offset_right = 186.0
+offset_bottom = 139.0
+text = "Arthur"
+label_settings = SubResource("LabelSettings_a7xfx")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

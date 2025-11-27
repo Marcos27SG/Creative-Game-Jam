@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://3iddfpwj615e"]
+
+[ext_resource type="Script" uid="uid://dejnfwn3e8eri" path="res://unit.gd" id="1_ctwoc"]
+[ext_resource type="Script" uid="uid://bk31qwusix5ch" path="res://components/drag_and_drop.gd" id="2_davkp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ctwoc"]
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t7bhw"]
+radius = 0.3
+height = 1.0
+
+[node name="Unit" type="Area3D" groups=["units"]]
+script = ExtResource("1_ctwoc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ctwoc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_t7bhw")
+
+[node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_davkp")
+target = NodePath("..")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="child_entered_tree" from="CollisionShape3D" to="." method="_on_collision_shape_3d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="CollisionShape3D" to="." method="_on_collision_shape_3d_child_exiting_tree"]

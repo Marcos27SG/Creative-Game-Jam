@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cwyg13d8wrnk7"]
+
+[ext_resource type="Shader" uid="uid://mbt8nyp7jwwq" path="res://shaders/ground_shader.gdshader" id="1_xygne"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xygne")
+shader_parameter/albedo = Color(0.53685045, 0.59568787, 0.67021525, 1)
+shader_parameter/outline_intensity = 0.1
+shader_parameter/outline_color = Color(0.1, 0.1, 0.2, 1)
+shader_parameter/depth_threshold = 0.25
+shader_parameter/depth_normal_threshold = 0.75
+shader_parameter/depth_normal_threshold_scale = 2.0
+shader_parameter/edge_intensity = 0.6
+shader_parameter/edge_color = Color(1, 1, 1, 1)
+shader_parameter/convex_threshold = 0.1

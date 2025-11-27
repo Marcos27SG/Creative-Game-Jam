@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://v0ubj85w54ii"]
+
+[ext_resource type="FontFile" uid="uid://s5i824qp364k" path="res://assets/theme/Lalezar-Regular.ttf" id="1_mkc30"]
+
+[resource]
+font = ExtResource("1_mkc30")

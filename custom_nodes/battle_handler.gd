@@ -1,0 +1,104 @@
+class_name BattleHandler
+extends Node
+
+#const ZOMBIE_TEST_POSITIONS := [
+	#Vector2i(8, 1),
+	#Vector2i(7, 4),
+	#Vector2i(8, 3),
+	#Vector2i(9, 5),
+	#Vector2i(9, 6)
+#]
+##const ZOMBIE := preload("res://data/enemies/zombie.tres")
+#
+#
+#signal player_won
+#signal enemy_won
+#
+#@export var game_state: GameState
+#@export var game_area : PlayArea
+#@export var game_area_unit_grid: UnitGrid
+#@export var battle_unit_grid: UnitGrid
+#
+#@onready var scene_spawner: SceneSpawner = $SceneSpawner
+#
+#var player_test: BattleUnit
+#var enemy_test: BattleUnit
+#var enemy_target : BattleUnit
+#var player_target: BattleUnit
+#
+#func _ready() -> void:
+	#game_state.changed.connect(_on_game_state_changed)
+	#
+#func _setup_battle_unit(unit_coord: Vector2i, new_unit: BattleUnit) -> void:
+	##new_unit.stats.reset_health()
+	##new_unit.stats.reset_mana()
+	#new_unit.global_position = game_area.get_global_from_tile(unit_coord) + Vector3(0.05,0.3,0.05)
+	#new_unit.tree_exited.connect(_on_battle_unit_died)
+	#battle_unit_grid.add_unit(unit_coord, new_unit)
+#
+#
+#
+#func _clean_up_fight() -> void:
+	#get_tree().call_group("player_units", "queue_free")
+	#get_tree().call_group("enemy_units", "queue_free")
+	#get_tree().call_group("units", "show_unit")
+	#
+#func _prepare_fight() -> void:
+	#get_tree().call_group("units", "hide_unit")
+	#for unit_coord: Vector2i in game_area_unit_grid.get_all_ocuppied_tiles():
+		#var unit: Unit = game_area_unit_grid.units[unit_coord]
+		#var new_unit := scene_spawner.spawn_scene(battle_unit_grid) as BattleUnit
+		#new_unit.add_to_group("player_units")
+		#new_unit.stats = unit.stats
+		#new_unit.stats.team = UnitStats.Team.PLAYER
+		#_setup_battle_unit(unit_coord, new_unit)
+	#
+	#for unit_coord: Vector2i in ZOMBIE_TEST_POSITIONS:
+		#var new_unit := scene_spawner.spawn_scene(battle_unit_grid) as BattleUnit
+		#new_unit.add_to_group("enemy_units")
+		#new_unit.stats = ZOMBIE
+		#new_unit.stats.team = UnitStats.Team.ENEMY
+		#_setup_battle_unit(unit_coord, new_unit)
+		##_setup_battle_unit(unit_coord, new_unit)
+	#player_test = get_tree().get_nodes_in_group("player_units") [1]
+	#enemy_test = get_tree().get_nodes_in_group("enemy_units") [1]
+	#player_target  = get_tree().get_nodes_in_group("enemy_units").pick_random()
+	#enemy_target  = get_tree().get_nodes_in_group("player_units").pick_random()
+#
+#func _on_battle_unit_died() -> void:
+	## We already concluded the battle!
+	## or we are quitting the game
+	#if not get_tree() or game_state.current_phase == GameState.Phase.PREPARATION:
+		#return
+	#
+	#if get_tree().get_node_count_in_group("enemy_units") == 0:
+		#game_state.current_phase = GameState.Phase.PREPARATION
+		#print("jugador gano")
+		#player_won.emit()
+	#if get_tree().get_node_count_in_group("player_units") == 0:
+		#game_state.current_phase = GameState.Phase.PREPARATION
+		#print("jugador perdio")
+		#enemy_won.emit()
+#
+#func _input(event: InputEvent) -> void:
+	#pass
+	##if event.is_action_pressed("test2"):
+		##var new_pos := UnitNavigation.get_next_position(player_test, player_target)
+		##if new_pos == Vector3(-1, 0 ,-1):
+			##return
+		##player_test.create_tween().tween_property(player_test, "global_position", new_pos , 0.5)
+		##player_test.animation_player_own.play("Walking_A")
+		###get_tree().call_group("player_units", "queue_free")
+	##if event.is_action_pressed("test1"):
+		###get_tree().call_group("enemy_units", "queue_free")
+		##var new_pos := UnitNavigation.get_next_position(enemy_test, enemy_target)
+		##if new_pos == Vector3(-1, 0 ,-1):
+			##return
+		##player_test.create_tween().tween_property(enemy_test, "global_position", new_pos , 0.5)
+#
+#func _on_game_state_changed() -> void:
+	#match game_state.current_phase:
+		#GameState.Phase.PREPARATION:
+			#_clean_up_fight()
+		#GameState.Phase.BATTLE:
+			#_prepare_fight()

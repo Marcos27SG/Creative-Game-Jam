@@ -1,0 +1,389 @@
+[gd_scene load_steps=18 format=3 uid="uid://dec1fal4ww57l"]
+
+[ext_resource type="Theme" uid="uid://cyhqhe4t6b0hs" path="res://assets/theme/ui_theme.tres" id="1_h3fc4"]
+[ext_resource type="Script" uid="uid://cdveqeb5ww2ib" path="res://scenes/main_menu/settings/settings_ui.gd" id="2_4t6ox"]
+[ext_resource type="Material" uid="uid://b5fnwsb3sqlmi" path="res://materials/ bg_darken_material.tres" id="2_asuuf"]
+[ext_resource type="Script" uid="uid://bgtbycqueqtbn" path="res://custom_nodes/button_with_sfx.gd" id="3_asuuf"]
+[ext_resource type="Texture2D" uid="uid://d3hii7resmfnb" path="res://assets/theme/ui-elements.png" id="3_k18wy"]
+[ext_resource type="Script" uid="uid://beerjpw55tihs" path="res://scenes/main_menu/settings/video.gd" id="6_h472k"]
+[ext_resource type="Script" uid="uid://clhhd541us6ta" path="res://scenes/main_menu/settings/audio.gd" id="7_h472k"]
+[ext_resource type="Script" uid="uid://4xh03ntl127g" path="res://scenes/main_menu/settings/language.gd" id="8_my0tk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4t6ox"]
+atlas = ExtResource("3_k18wy")
+region = Rect2(2, 130, 60, 63)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h472k"]
+texture = SubResource("AtlasTexture_4t6ox")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my0tk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6p75v"]
+load_path = "res://.godot/imported/ui-elements.png-d4ed73a6a4fcc1e49d10caac392e786c.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqd6d"]
+atlas = SubResource("CompressedTexture2D_6p75v")
+region = Rect2(6, 292, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8stoe"]
+atlas = ExtResource("3_k18wy")
+region = Rect2(38, 292, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24xbr"]
+atlas = ExtResource("3_k18wy")
+region = Rect2(6, 324, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukv8d"]
+atlas = ExtResource("3_k18wy")
+region = Rect2(38, 324, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axtfc"]
+atlas = ExtResource("3_k18wy")
+region = Rect2(6, 292, 16, 24)
+
+[node name="settings_ui" type="Control" node_paths=PackedStringArray("main", "video_button", "audio_button", "language_button", "exit_game_button", "exit_to_desktop_button", "close_button", "video_panel", "audio_panel", "language_panel")]
+process_mode = 3
+z_index = 4
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h3fc4")
+script = ExtResource("2_4t6ox")
+main = NodePath("Panel/settings_menu")
+video_button = NodePath("Panel/settings_menu/main/HBoxContainer/video")
+audio_button = NodePath("Panel/settings_menu/main/HBoxContainer/audio")
+language_button = NodePath("Panel/settings_menu/main/HBoxContainer/language")
+exit_game_button = NodePath("Panel/settings_menu/main/HBoxContainer/save_and_exit")
+exit_to_desktop_button = NodePath("Panel/settings_menu/main/HBoxContainer/exit_to_desktop")
+close_button = NodePath("Panel/settings_menu/main/HBoxContainer/back")
+video_panel = NodePath("Panel/settings_menu/details/video")
+audio_panel = NodePath("Panel/settings_menu/details/audio")
+language_panel = NodePath("Panel/settings_menu/details/language")
+
+[node name="Panel" type="Panel" parent="."]
+material = ExtResource("2_asuuf")
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="settings_menu" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main" type="MarginContainer" parent="Panel/settings_menu"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/settings_menu/main"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="video" type="Button" parent="Panel/settings_menu/main/HBoxContainer"]
+layout_mode = 2
+text = "Video"
+script = ExtResource("3_asuuf")
+
+[node name="audio" type="Button" parent="Panel/settings_menu/main/HBoxContainer"]
+layout_mode = 2
+text = "Audio"
+script = ExtResource("3_asuuf")
+
+[node name="language" type="Button" parent="Panel/settings_menu/main/HBoxContainer"]
+layout_mode = 2
+text = "Language"
+script = ExtResource("3_asuuf")
+
+[node name="space" type="Control" parent="Panel/settings_menu/main/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="save_and_exit" type="Button" parent="Panel/settings_menu/main/HBoxContainer"]
+layout_mode = 2
+text = "Return to menu"
+script = ExtResource("3_asuuf")
+
+[node name="exit_to_desktop" type="Button" parent="Panel/settings_menu/main/HBoxContainer"]
+layout_mode = 2
+text = "Exit to desktop"
+script = ExtResource("3_asuuf")
+
+[node name="back" type="Button" parent="Panel/settings_menu/main/HBoxContainer"]
+layout_mode = 2
+text = "Back"
+script = ExtResource("3_asuuf")
+
+[node name="details" type="Panel" parent="Panel/settings_menu"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_h472k")
+
+[node name="video" type="MarginContainer" parent="Panel/settings_menu/details" node_paths=PackedStringArray("display_mode_left_button", "display_mode_right_button", "display_mode_label_label", "display_mode_label", "display_res_left_button", "display_res_right_button", "display_res_label_label", "display_res_label")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+script = ExtResource("6_h472k")
+display_mode_left_button = NodePath("VBoxContainer/display_mode/display_mode/left")
+display_mode_right_button = NodePath("VBoxContainer/display_mode/display_mode/right")
+display_mode_label_label = NodePath("VBoxContainer/display_mode/display_mode/Label")
+display_mode_label = NodePath("VBoxContainer/display_mode/display_mode/value_label")
+display_res_left_button = NodePath("VBoxContainer/resolution/resolution/left")
+display_res_right_button = NodePath("VBoxContainer/resolution/resolution/right")
+display_res_label_label = NodePath("VBoxContainer/resolution/resolution/Label")
+display_res_label = NodePath("VBoxContainer/resolution/resolution/value_label")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/settings_menu/details/video"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="display_mode" type="PanelContainer" parent="Panel/settings_menu/details/video/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_my0tk")
+
+[node name="display_mode" type="HBoxContainer" parent="Panel/settings_menu/details/video/VBoxContainer/display_mode"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/settings_menu/details/video/VBoxContainer/display_mode/display_mode"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Display Mode"
+
+[node name="left" type="TextureButton" parent="Panel/settings_menu/details/video/VBoxContainer/display_mode/display_mode"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_mqd6d")
+texture_pressed = SubResource("AtlasTexture_8stoe")
+texture_hover = SubResource("AtlasTexture_24xbr")
+texture_disabled = SubResource("AtlasTexture_ukv8d")
+texture_focused = SubResource("AtlasTexture_axtfc")
+
+[node name="value_label" type="Label" parent="Panel/settings_menu/details/video/VBoxContainer/display_mode/display_mode"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Full Screen"
+horizontal_alignment = 1
+
+[node name="right" type="TextureButton" parent="Panel/settings_menu/details/video/VBoxContainer/display_mode/display_mode"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_mqd6d")
+texture_pressed = SubResource("AtlasTexture_8stoe")
+texture_hover = SubResource("AtlasTexture_24xbr")
+texture_disabled = SubResource("AtlasTexture_ukv8d")
+texture_focused = SubResource("AtlasTexture_axtfc")
+flip_h = true
+
+[node name="resolution" type="PanelContainer" parent="Panel/settings_menu/details/video/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_my0tk")
+
+[node name="resolution" type="HBoxContainer" parent="Panel/settings_menu/details/video/VBoxContainer/resolution"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/settings_menu/details/video/VBoxContainer/resolution/resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Display Mode"
+
+[node name="left" type="TextureButton" parent="Panel/settings_menu/details/video/VBoxContainer/resolution/resolution"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_mqd6d")
+texture_pressed = SubResource("AtlasTexture_8stoe")
+texture_hover = SubResource("AtlasTexture_24xbr")
+texture_disabled = SubResource("AtlasTexture_ukv8d")
+texture_focused = SubResource("AtlasTexture_axtfc")
+
+[node name="value_label" type="Label" parent="Panel/settings_menu/details/video/VBoxContainer/resolution/resolution"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Full Screen"
+horizontal_alignment = 1
+
+[node name="right" type="TextureButton" parent="Panel/settings_menu/details/video/VBoxContainer/resolution/resolution"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_mqd6d")
+texture_pressed = SubResource("AtlasTexture_8stoe")
+texture_hover = SubResource("AtlasTexture_24xbr")
+texture_disabled = SubResource("AtlasTexture_ukv8d")
+texture_focused = SubResource("AtlasTexture_axtfc")
+flip_h = true
+
+[node name="audio" type="MarginContainer" parent="Panel/settings_menu/details" node_paths=PackedStringArray("master_volume_label", "master_volume_slider", "master_volume_value_label", "music_volume_label", "music_volume_slider", "music_volume_value_label", "effects_volume_label", "effects_volume_slider", "effects_volume_value_label")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+script = ExtResource("7_h472k")
+master_volume_label = NodePath("VBoxContainer/master_volume/HBoxContainer/Label")
+master_volume_slider = NodePath("VBoxContainer/master_volume/HBoxContainer/master_slider")
+master_volume_value_label = NodePath("VBoxContainer/master_volume/HBoxContainer/value")
+music_volume_label = NodePath("VBoxContainer/music_volume/HBoxContainer/Label")
+music_volume_slider = NodePath("VBoxContainer/music_volume/HBoxContainer/music_slide")
+music_volume_value_label = NodePath("VBoxContainer/music_volume/HBoxContainer/value")
+effects_volume_label = NodePath("VBoxContainer/effects_volume/HBoxContainer/Label")
+effects_volume_slider = NodePath("VBoxContainer/effects_volume/HBoxContainer/effects_volume")
+effects_volume_value_label = NodePath("VBoxContainer/effects_volume/HBoxContainer/value")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/settings_menu/details/audio"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="master_volume" type="PanelContainer" parent="Panel/settings_menu/details/audio/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_my0tk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/settings_menu/details/audio/VBoxContainer/master_volume"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel/settings_menu/details/audio/VBoxContainer/master_volume/HBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Master Volume"
+
+[node name="master_slider" type="HSlider" parent="Panel/settings_menu/details/audio/VBoxContainer/master_volume/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/center_grabber = 0
+value = 50.0
+rounded = true
+
+[node name="value" type="Label" parent="Panel/settings_menu/details/audio/VBoxContainer/master_volume/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "100"
+horizontal_alignment = 2
+
+[node name="music_volume" type="PanelContainer" parent="Panel/settings_menu/details/audio/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_my0tk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/settings_menu/details/audio/VBoxContainer/music_volume"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel/settings_menu/details/audio/VBoxContainer/music_volume/HBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Music Volume"
+
+[node name="music_slide" type="HSlider" parent="Panel/settings_menu/details/audio/VBoxContainer/music_volume/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/center_grabber = 0
+value = 50.0
+rounded = true
+
+[node name="value" type="Label" parent="Panel/settings_menu/details/audio/VBoxContainer/music_volume/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "100"
+horizontal_alignment = 2
+
+[node name="effects_volume" type="PanelContainer" parent="Panel/settings_menu/details/audio/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_my0tk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/settings_menu/details/audio/VBoxContainer/effects_volume"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel/settings_menu/details/audio/VBoxContainer/effects_volume/HBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "SFX"
+
+[node name="effects_volume" type="HSlider" parent="Panel/settings_menu/details/audio/VBoxContainer/effects_volume/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/center_grabber = 0
+value = 50.0
+rounded = true
+
+[node name="value" type="Label" parent="Panel/settings_menu/details/audio/VBoxContainer/effects_volume/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "100"
+horizontal_alignment = 2
+
+[node name="language" type="MarginContainer" parent="Panel/settings_menu/details" node_paths=PackedStringArray("english_language_button", "spanish_language_button")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+script = ExtResource("8_my0tk")
+english_language_button = NodePath("VBoxContainer/english")
+spanish_language_button = NodePath("VBoxContainer/spanish")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/settings_menu/details/language"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="english" type="Button" parent="Panel/settings_menu/details/language/VBoxContainer"]
+layout_mode = 2
+text = "English"
+script = ExtResource("3_asuuf")
+
+[node name="spanish" type="Button" parent="Panel/settings_menu/details/language/VBoxContainer"]
+layout_mode = 2
+text = "Spanish"
+script = ExtResource("3_asuuf")

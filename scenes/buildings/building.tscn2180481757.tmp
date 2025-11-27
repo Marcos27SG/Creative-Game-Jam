@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://crg5ck6jvyg3l"]
+
+[ext_resource type="Script" uid="uid://cci5rgydisl2y" path="res://scenes/buildings/building.gd" id="1_64dnl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_64dnl"]
+
+[node name="Building" type="Area3D"]
+script = ExtResource("1_64dnl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_64dnl")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

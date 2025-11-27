@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Decision" load_steps=2 format=3 uid="uid://c1wc714it1501"]
+
+[ext_resource type="Script" uid="uid://sj3scet3ab1d" path="res://data/skill_tree/decision.gd" id="1_o47i4"]
+
+[resource]
+script = ExtResource("1_o47i4")
+id = "guardian_training"
+title = "Guardian Training"
+description = "Basic training for Guardians, increasing their health and attack by 10%."
+cost = 2
+previous_decisions = Array[String](["extra_turn"])
+next_decisions = Array[String](["defensive_stance", "offensive_strike"])
+mutually_exclusive_with = Array[String]([])
+layer = 1
+is_unlocked = false
+is_completed = false
+is_locked_out = false
+tree_position = Vector2(0, -200)
+metadata/_custom_type_script = "uid://sj3scet3ab1d"

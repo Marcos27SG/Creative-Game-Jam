@@ -1,0 +1,248 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cb8glcypi6x6t"
+path="res://.godot/imported/Buildings_Stone_Rebellion.blend-c05817f90c12b57575f4f6caaf5ec640.scn"
+
+[deps]
+
+source_file="res://assets/3D/Buildings/Buildings_Stone_Rebellion.blend"
+dest_files=["res://.godot/imported/Buildings_Stone_Rebellion.blend-c05817f90c12b57575f4f6caaf5ec640.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Building_Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/3D/Troops/BuildingMaterial.tres",
+"use_external/path": "uid://j1b31s5ucn6u"
+}
+},
+"meshes": {
+"Buildings_Stone_Rebellion_building_archeryrange_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_archeryrange_blue.res",
+"save_to_file/path": "uid://c7xc7yv6l5wy2"
+},
+"Buildings_Stone_Rebellion_building_barracks_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_barracks_blue.res",
+"save_to_file/path": "uid://d10h2kwjm87y5"
+},
+"Buildings_Stone_Rebellion_building_blacksmith_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_blacksmith_blue.res",
+"save_to_file/path": "uid://day5xidw4ekpd"
+},
+"Buildings_Stone_Rebellion_building_castle_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_castle_blue.res",
+"save_to_file/path": "uid://b8rgno4h2mqct"
+},
+"Buildings_Stone_Rebellion_building_church_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_church_blue.res",
+"save_to_file/path": "uid://c2o088ehalim7"
+},
+"Buildings_Stone_Rebellion_building_home_A_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_home_A_blue.res",
+"save_to_file/path": "uid://cdqy8n60qnwsb"
+},
+"Buildings_Stone_Rebellion_building_home_B_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_home_B_blue.res",
+"save_to_file/path": "uid://u5lw2ifw6462"
+},
+"Buildings_Stone_Rebellion_building_lumbermill_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_lumbermill_blue.res",
+"save_to_file/path": "uid://c46v0kgq6jqmf"
+},
+"Buildings_Stone_Rebellion_building_market_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_market_blue.res",
+"save_to_file/path": "uid://dfcove77gp8nw"
+},
+"Buildings_Stone_Rebellion_building_mine_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_mine_blue.res",
+"save_to_file/path": "uid://ghpa327q7cni"
+},
+"Buildings_Stone_Rebellion_building_tavern_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_tavern_blue.res",
+"save_to_file/path": "uid://0qysn8livhcv"
+},
+"Buildings_Stone_Rebellion_building_tower_base_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_tower_base_blue.res",
+"save_to_file/path": "uid://du2e1h7fe52d"
+},
+"Buildings_Stone_Rebellion_building_watermill_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_watermill_blue.res",
+"save_to_file/path": "uid://btnpb7c6jv87u"
+},
+"Buildings_Stone_Rebellion_building_well_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_well_blue.res",
+"save_to_file/path": "uid://3fprhg5m6i8g"
+},
+"Buildings_Stone_Rebellion_building_windmill_top_blue": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_windmill_top_blue.res",
+"save_to_file/path": "uid://g6usthethmoo"
+},
+"Buildings_Stone_Rebellion_core_engine": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_core_engine.res",
+"save_to_file/path": "uid://m8h42giaky0l"
+},
+"Buildings_Stone_Rebellion_crystal": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_crystal.res",
+"save_to_file/path": "uid://ccgjoswu8brg4"
+},
+"Buildings_Stone_Rebellion_house": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_house.res",
+"save_to_file/path": "uid://b8htbp2jndscv"
+},
+"Buildings_Stone_Rebellion_workshop": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/3D/Buildings/Buildings_Stone_Rebellion_workshop.res",
+"save_to_file/path": "uid://cexk2ycttfekm"
+}
+},
+"nodes": {
+"PATH:Camera": {
+"import/skip_import": true
+},
+"PATH:Light": {
+"import/skip_import": true
+}
+}
+}
+blender/nodes/visible=0
+blender/nodes/active_collection_only=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/colors=false
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true
+gltf/naming_version=2

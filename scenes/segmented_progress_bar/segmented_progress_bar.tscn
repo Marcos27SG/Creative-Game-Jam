@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dax6y8b2qbc0m"]
+
+[ext_resource type="Script" uid="uid://c3r57jox5kj8g" path="res://scenes/segmented_progress_bar/segmented_progress_bar.gd" id="1_08nuu"]
+
+[node name="SegmentedProgressBar" type="Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1920.0
+offset_top = -540.0
+offset_right = -1820.0
+offset_bottom = -440.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_08nuu")

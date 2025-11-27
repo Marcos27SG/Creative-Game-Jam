@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw8vb1ukhmmq6"]
+
+[ext_resource type="Script" uid="uid://mgtokria6q2y" path="res://scenes/skill_tree/skill_tree_ui.gd" id="1_7utke"]
+
+[node name="SkillTreeUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7utke")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.164706, 0.164706, 0.6)
+
+[node name="DecisionContainer" type="Control" parent="."]
+custom_minimum_size = Vector2(1200, 1080)
+anchors_preset = 0
+
+[node name="DecisionPointsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1477.0
+offset_top = 617.0
+offset_right = 1584.0
+offset_bottom = 640.0
+text = "test"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1434.0
+offset_top = 242.0
+offset_right = 1635.0
+offset_bottom = 461.0
+
+[node name="vboxPanel" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="info_title" type="Label" parent="Panel/vboxPanel"]
+layout_mode = 2
+
+[node name="info_description" type="Label" parent="Panel/vboxPanel"]
+layout_mode = 2
+
+[node name="info_cost" type="Label" parent="Panel/vboxPanel"]
+layout_mode = 2
+
+[node name="confirm_button" type="Button" parent="Panel/vboxPanel"]
+layout_mode = 2

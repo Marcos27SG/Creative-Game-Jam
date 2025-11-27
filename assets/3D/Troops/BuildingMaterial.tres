@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://j1b31s5ucn6u"]
+
+[ext_resource type="Shader" uid="uid://wnuvysjsqs8j" path="res://shaders/troop_surface.gdshader" id="1_5m4na"]
+[ext_resource type="Texture2D" uid="uid://dp1wkk5xfuc1u" path="res://assets/3D/Buildings/textures/Color_Paletter_P.png" id="2_5m4na"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5m4na")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("2_5m4na")
+shader_parameter/outline_intensity = 0.1
+shader_parameter/outline_color = Color(0.1, 0.1, 0.2, 1)
+shader_parameter/depth_threshold = 0.25
+shader_parameter/depth_normal_threshold = 0.75
+shader_parameter/depth_normal_threshold_scale = 2.0
+shader_parameter/edge_intensity = 0.6
+shader_parameter/edge_color = Color(0.7, 0.6, 0.6, 1)
+shader_parameter/convex_threshold = 0.1
+shader_parameter/alpha = 1.0

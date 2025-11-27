@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://fxvcqexilpon"]
+
+[ext_resource type="Script" uid="uid://qdaqal7sqlqf" path="res://scenes/animated_progress_bar/animated_progress_bar.gd" id="1_5e7h1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ij3p"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e7h1"]
+bg_color = Color(0.673752, 0.134136, 0.180425, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7bd1"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf0yv"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_5e7h1"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="AnimatedHealthBar" type="ProgressBar"]
+custom_minimum_size = Vector2(300, 20)
+offset_right = 300.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4ij3p")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5e7h1")
+value = 100.0
+show_percentage = false
+script = ExtResource("1_5e7h1")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_l7bd1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yf0yv")
+value = 60.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="ProgressBar"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 3
+layout_mode = 0
+offset_left = 109.0
+offset_top = -2.0
+offset_right = 210.0
+offset_bottom = 21.0
+text = "Discontent"
+label_settings = SubResource("LabelSettings_5e7h1")
+horizontal_alignment = 1

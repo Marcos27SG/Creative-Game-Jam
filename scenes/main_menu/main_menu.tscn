@@ -1,0 +1,193 @@
+[gd_scene load_steps=15 format=3 uid="uid://c2uic58na84gc"]
+
+[ext_resource type="Script" uid="uid://ct0ywfy8cvi5p" path="res://scenes/main_menu/main_menu.gd" id="1_fsom3"]
+[ext_resource type="PackedScene" uid="uid://cyywn5is25bfs" path="res://scenes/settings_menu/settings_menu.tscn" id="2_0ebjn"]
+[ext_resource type="Theme" uid="uid://cx7bf8sfphoqg" path="res://assets/theme/main_menu_theme.tres" id="3_uqeha"]
+[ext_resource type="Script" uid="uid://bgtbycqueqtbn" path="res://custom_nodes/button_with_sfx.gd" id="3_wem23"]
+
+[sub_resource type="Curve" id="Curve_uqeha"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.582376, 0.696945), -1.20331, -1.20331, 0, 0, Vector2(0.996169, 0.00723469), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wem23"]
+curve = SubResource("Curve_uqeha")
+
+[sub_resource type="Gradient" id="Gradient_3ovsr"]
+offsets = PackedFloat32Array(0.404255, 0.553191)
+colors = PackedColorArray(0, 0, 0, 0, 0.407843, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5seab"]
+gradient = SubResource("Gradient_3ovsr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4xg86"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1, 1)
+gravity = Vector3(45, 98, 0)
+scale_min = 2.0
+scale_max = 8.0
+color_initial_ramp = SubResource("GradientTexture1D_5seab")
+alpha_curve = SubResource("CurveTexture_wem23")
+turbulence_enabled = true
+turbulence_influence_min = 0.01
+turbulence_influence_max = 0.08
+
+[sub_resource type="Curve" id="Curve_wem23"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.582376, 0.696945), -1.20331, -1.20331, 0, 0, Vector2(0.996169, 0.00723469), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3ovsr"]
+curve = SubResource("Curve_wem23")
+
+[sub_resource type="Gradient" id="Gradient_5seab"]
+offsets = PackedFloat32Array(0.404255, 0.553191)
+colors = PackedColorArray(0, 0, 0, 0, 0.407843, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4xg86"]
+gradient = SubResource("Gradient_5seab")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_thkx5"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1, 1)
+gravity = Vector3(45, -98, 0)
+scale_min = 2.0
+scale_max = 8.0
+color_initial_ramp = SubResource("GradientTexture1D_4xg86")
+alpha_curve = SubResource("CurveTexture_3ovsr")
+turbulence_enabled = true
+turbulence_influence_min = 0.01
+turbulence_influence_max = 0.08
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_uqeha")
+script = ExtResource("1_fsom3")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0430653, 0.127992, 0.12215, 1)
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="MainMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.5
+offset_top = -232.0
+offset_right = 440.5
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_uqeha")
+theme_override_constants/line_spacing = 40
+theme_override_font_sizes/font_size = 80
+text = "S T O N E
+R E B E L L I O N"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MainMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.5
+offset_top = 119.0
+offset_right = 253.5
+offset_bottom = 331.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 70
+
+[node name="Continue" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Continue
+"
+
+[node name="New Run" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "New Run"
+script = ExtResource("3_wem23")
+
+[node name="Options" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Options"
+script = ExtResource("3_wem23")
+
+[node name="Exit" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit"
+script = ExtResource("3_wem23")
+
+[node name="OptionsMenu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="OptionsMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.021, 0.021, 0.021, 0.403)
+
+[node name="SettingsMenu" parent="OptionsMenu" instance=ExtResource("2_0ebjn")]
+
+[node name="ReturnButton" type="Button" parent="OptionsMenu"]
+unique_name_in_owner = true
+offset_left = 111.0
+offset_top = 853.0
+offset_right = 156.0
+offset_bottom = 884.0
+text = "Back"
+
+[node name="QuitButton" type="Button" parent="OptionsMenu"]
+unique_name_in_owner = true
+offset_left = 1504.0
+offset_top = 859.0
+offset_right = 1546.0
+offset_bottom = 890.0
+text = "Quit"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(724, -42)
+amount = 100
+lifetime = 10.0
+preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_4xg86")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(720, 1160)
+amount = 100
+lifetime = 10.0
+preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_thkx5")
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/New Run" to="." method="_on_new_run_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="OptionsMenu/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="OptionsMenu/QuitButton" to="." method="_on_quit_button_pressed"]

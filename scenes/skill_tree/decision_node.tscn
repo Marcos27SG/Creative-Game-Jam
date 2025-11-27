@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr5xulmmuhh6n"]
+
+[ext_resource type="Script" uid="uid://xyobof0746jb" path="res://scenes/skill_tree/decision_node.gd" id="1_wb8jv"]
+[ext_resource type="Texture2D" uid="uid://bjemiwec57sg1" path="res://assets/2D/MageCard.png" id="3_ewd8m"]
+
+[node name="DecisionNode" type="Control"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
+script = ExtResource("1_wb8jv")
+
+[node name="background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+color = Color(0.099986, 0.099986, 0.099986, 0.619608)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 15.0
+offset_right = 64.0
+offset_bottom = 65.0
+flat = true
+
+[node name="Icon" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ewd8m")
+expand_mode = 1
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -26.0
+offset_right = 72.0
+offset_bottom = -3.0
+text = "Decision"

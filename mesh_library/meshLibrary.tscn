@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://hcg2ttx03dnv"]
+
+[ext_resource type="ArrayMesh" uid="uid://d1fwsohtp2sb5" path="res://assets/3D/Platform_bench_platform.res" id="1_8qylk"]
+[ext_resource type="ArrayMesh" uid="uid://b02iapdl2540e" path="res://assets/3D/Platform_highlight_platform.res" id="2_umlp8"]
+[ext_resource type="ArrayMesh" uid="uid://c8rp8405runmm" path="res://assets/3D/Platform_play_area_platform.res" id="3_xf25x"]
+
+[node name="Resource" type="Node3D"]
+
+[node name="PlatformBenchPlatform" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.746103, 0, -0.0466442)
+mesh = ExtResource("1_8qylk")
+
+[node name="PlatformHighlightPlatform" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.436015, 0, -0.0466442)
+mesh = ExtResource("2_umlp8")
+
+[node name="PlatformPlayAreaPlatform" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56917, 0, -0.0466442)
+mesh = ExtResource("3_xf25x")

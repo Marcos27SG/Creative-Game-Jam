@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b5fnwsb3sqlmi"]
+
+[ext_resource type="Shader" uid="uid://10hd360q8j6j" path="res://materials/bg_darken_blur.gdshader" id="1_mgvdt"]
+
+[resource]
+shader = ExtResource("1_mgvdt")
+shader_parameter/lod = 0.8
+shader_parameter/mix_percentage = 0.5

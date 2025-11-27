@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=3 uid="uid://b73rmylpr124l"]
+
+[ext_resource type="Texture2D" uid="uid://c4awhqfup7o2k" path="res://assets/sprites/gold.png" id="1_q0l8s"]
+[ext_resource type="Script" uid="uid://cd02viry88u04" path="res://scenes/sell_portal/sell_portal.gd" id="1_x6vx3"]
+[ext_resource type="Resource" uid="uid://8ghfx2i114hn" path="res://data/unit_pool/unit_pool.tres" id="2_gmlex"]
+[ext_resource type="Resource" uid="uid://1v4dxsmqc6xl" path="res://data/player/player_stats.tres" id="2_q37ab"]
+[ext_resource type="Script" uid="uid://7q4fu8x4hlo4" path="res://components/highlighter.gd" id="4_se251"]
+[ext_resource type="AudioStream" uid="uid://p1b7rsqtf0cc" path="res://assets/sfx/sell.ogg" id="4_svd6b"]
+[ext_resource type="Shader" uid="uid://ceh85ftl4kk87" path="res://shaders/surface_clouds.gdshader" id="5_svd6b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6kxgn"]
+render_priority = 0
+shader = ExtResource("5_svd6b")
+shader_parameter/albedo = Color(0.211169, 0.612699, 0.427881, 1)
+shader_parameter/outline_intensity = 1.0
+shader_parameter/outline_color = Color(0.105892, 0.22287, 0.343998, 1)
+shader_parameter/depth_threshold = 0.25
+shader_parameter/depth_normal_threshold = 0.75
+shader_parameter/depth_normal_threshold_scale = 2.0
+shader_parameter/edge_intensity = 0.6
+shader_parameter/edge_color = Color(0.7, 0.6, 0.6, 1)
+shader_parameter/convex_threshold = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x6vx3"]
+material = SubResource("ShaderMaterial_6kxgn")
+height = 1.0
+radial_segments = 8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4w48"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q37ab"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_gmlex"]
+font_size = 32
+
+[node name="SellPortal" type="Area3D"]
+script = ExtResource("1_x6vx3")
+unit_pool = ExtResource("2_gmlex")
+player_stats = ExtResource("2_q37ab")
+sell_sound = ExtResource("4_svd6b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_x6vx3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_g4w48")
+debug_color = Color(0.989935, 0, 0.284506, 0.42)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -65.0
+offset_top = -12.0
+offset_right = -25.0
+offset_bottom = 28.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Sell"
+label_settings = SubResource("LabelSettings_q37ab")
+horizontal_alignment = 1
+
+[node name="Gold" type="HBoxContainer" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = -5.0
+offset_top = 37.0
+offset_right = 56.0
+offset_bottom = 82.0
+alignment = 1
+
+[node name="GoldLabel" type="Label" parent="Control/Gold"]
+layout_mode = 2
+text = "99"
+label_settings = SubResource("LabelSettings_gmlex")
+
+[node name="GoldIcon" type="TextureRect" parent="Control/Gold"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+texture = ExtResource("1_q0l8s")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("4_se251")
+visuals = NodePath("../MeshInstance3D")
+outline_color = Color(0.185201, 0.471592, 0.428977, 1)
+highlight_color = Color(0.289582, 0.676601, 7.70092e-07, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://3iddfpwj615e"]
+
+[ext_resource type="Script" uid="uid://dejnfwn3e8eri" path="res://unit.gd" id="1_ctwoc"]
+[ext_resource type="Script" uid="uid://bk31qwusix5ch" path="res://components/drag_and_drop.gd" id="2_davkp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t7bhw"]
+radius = 0.3
+height = 1.0
+
+[node name="Unit" type="Node3D"]
+script = ExtResource("1_ctwoc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_t7bhw")
+
+[node name="DragAndDrop" type="Node" parent="."]
+script = ExtResource("2_davkp")

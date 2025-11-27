@@ -1,0 +1,204 @@
+[gd_scene load_steps=22 format=3 uid="uid://dlogcwl25w64q"]
+
+[ext_resource type="Script" uid="uid://ct2ersxwj0nlj" path="res://scenes/world/world.gd" id="1_dlabj"]
+[ext_resource type="Script" uid="uid://0atgvdgf2fnb" path="res://scenes/world/view.gd" id="1_t5ptc"]
+[ext_resource type="Script" uid="uid://cb48bd8uejt3s" path="res://scenes/world/builder.gd" id="2_bq33v"]
+[ext_resource type="Script" uid="uid://c15sv8n8me2d2" path="res://data/buildings/structure.gd" id="3_j2gmx"]
+[ext_resource type="Resource" uid="uid://ubnek0p5wqtu" path="res://data/buildings/FirstBuilding.tres" id="4_1yooq"]
+[ext_resource type="Resource" uid="uid://3rbm4ceh8g3p" path="res://data/buildings/SecondBuilding.tres" id="5_gb53w"]
+[ext_resource type="Resource" uid="uid://dusbaoax6cepn" path="res://data/buildings/Third_building.tres" id="6_1yooq"]
+[ext_resource type="Script" uid="uid://bgoupeuwujo52" path="res://scenes/world/grid_highlight.gd" id="7_bq33v"]
+[ext_resource type="PackedScene" uid="uid://dax6y8b2qbc0m" path="res://scenes/segmented_progress_bar/segmented_progress_bar.tscn" id="10_gb53w"]
+[ext_resource type="PackedScene" uid="uid://bccvfcnqpk47a" path="res://scenes/skill_tree/skill_tree_manager.tscn" id="11_bt7bg"]
+[ext_resource type="Material" uid="uid://cwyg13d8wrnk7" path="res://materials/ground.tres" id="12_umvgx"]
+[ext_resource type="Script" uid="uid://u8f0blv3d67b" path="res://scenes/world/morale_manager.gd" id="13_m114p"]
+[ext_resource type="PackedScene" uid="uid://fxvcqexilpon" path="res://scenes/animated_progress_bar/animated_health_bar.tscn" id="13_mxkvs"]
+[ext_resource type="PackedScene" uid="uid://cqcjpv3f2qbyb" path="res://scenes/world/building_menu.tscn" id="14_umvgx"]
+[ext_resource type="Script" uid="uid://cvimuwy4vbr6i" path="res://components/scene_spawner.gd" id="16_71ii3"]
+[ext_resource type="PackedScene" uid="uid://crg5ck6jvyg3l" path="res://scenes/buildings/building.tscn" id="17_bt7bg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gol0p"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_br8qb"]
+sky_material = SubResource("ProceduralSkyMaterial_gol0p")
+
+[sub_resource type="Environment" id="Environment_px18m"]
+background_mode = 2
+sky = SubResource("Sky_br8qb")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j2gmx"]
+material = ExtResource("12_umvgx")
+size = Vector2(20, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dlabj"]
+size = Vector3(20, 1, 1)
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_dlabj")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_px18m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+visible = false
+cell_size = Vector3(1, 0.1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+
+[node name="View" type="Node3D" parent="."]
+transform = Transform3D(0.707107, 0.40558, -0.579228, 0, 0.819152, 0.573576, 0.707107, -0.40558, 0.579228, 0, 0, 0)
+script = ExtResource("1_t5ptc")
+max_zoom = 8.0
+min_x_limit = -3.0
+max_x_limit = 7.0
+
+[node name="Camera3D" type="Camera3D" parent="View"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.15256e-07, 0, 0, 1, -0.916129, -1.16713, 31.6668)
+projection = 1
+fov = 20.0
+size = 6.0
+
+[node name="Builder" type="Node3D" parent="." node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "grid_highlight", "tooltip_label")]
+script = ExtResource("2_bq33v")
+structures = Array[ExtResource("3_j2gmx")]([ExtResource("4_1yooq"), ExtResource("5_gb53w"), ExtResource("6_1yooq")])
+selector = NodePath("Selector")
+selector_container = NodePath("Selector/Container")
+view_camera = NodePath("../View/Camera3D")
+gridmap = NodePath("../GridMap")
+grid_highlight = NodePath("../GridHighlight")
+tooltip_label = NodePath("../BuildToolTip")
+
+[node name="Selector" type="Node3D" parent="Builder"]
+
+[node name="Container" type="Node3D" parent="Builder/Selector"]
+
+[node name="BuildingHandler" type="Node3D" parent="."]
+
+[node name="GridHighlight" type="Node3D" parent="." node_paths=PackedStringArray("grid_map")]
+script = ExtResource("7_bq33v")
+grid_map = NodePath("../GridMap")
+valid_color = Color(0.2, 0.8, 0.2, 0.166)
+occupied_color = Color(0.8, 0.2, 0.2, 0.221)
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00669909, -0.00866842, 0.00627923)
+sorting_offset = 0.2
+mesh = SubResource("PlaneMesh_j2gmx")
+
+[node name="BuildButton" type="Button" parent="."]
+offset_left = 1283.0
+offset_top = 993.0
+offset_right = 1331.0
+offset_bottom = 1024.0
+text = "Build"
+
+[node name="NextTurn" type="Button" parent="."]
+offset_left = 1347.0
+offset_top = 994.0
+offset_right = 1433.0
+offset_bottom = 1025.0
+text = "Next Turn"
+
+[node name="NextTurn2" type="Button" parent="."]
+visible = false
+offset_left = 1450.0
+offset_top = 994.0
+offset_right = 1542.0
+offset_bottom = 1025.0
+text = "Reset Turn
+"
+
+[node name="Limit" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0221638, 0, 0.999754, 0, 1, 0, -0.999754, 0, -0.0221638, -9.51578, 0, -1.00652)
+mesh = SubResource("BoxMesh_dlabj")
+
+[node name="Limit2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999018, 0, 0.0442994, 0, 1, 0, -0.0442994, 0, 0.999018, 0.21418, 0, 8.96995)
+mesh = SubResource("BoxMesh_dlabj")
+
+[node name="Limit3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999018, 0, 0.0442994, 0, 1, 0, -0.0442994, 0, 0.999018, -1.89708, 0, -7.62589)
+mesh = SubResource("BoxMesh_dlabj")
+
+[node name="Limit4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0181505, 0, 0.999835, 0, 1, 0, -0.999835, 0, 0.0181505, 8.18214, 0, 0.464244)
+mesh = SubResource("BoxMesh_dlabj")
+
+[node name="Wood" type="Label" parent="."]
+offset_left = 637.0
+offset_top = 18.0
+offset_right = 682.0
+offset_bottom = 41.0
+text = "Wood"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TurnBar" parent="UI" instance=ExtResource("10_gb53w")]
+offset_left = -92.0
+offset_top = 23.0
+offset_right = 208.0
+offset_bottom = 43.0
+empty_color = Color(0.092397, 0.0923971, 0.0923971, 1)
+
+[node name="SkillManager" parent="UI" instance=ExtResource("11_bt7bg")]
+visible = false
+
+[node name="BuildingMenu" parent="UI" instance=ExtResource("14_umvgx")]
+
+[node name="MoraleManager" type="Node" parent="UI"]
+script = ExtResource("13_m114p")
+
+[node name="Discontent" parent="UI/MoraleManager" instance=ExtResource("13_mxkvs")]
+offset_left = 813.0
+offset_top = 995.0
+offset_right = 1113.0
+offset_bottom = 1015.0
+value = 0.0
+title = "Discontent"
+color = Color(0.552605, 0.0359437, 0.139419, 1)
+animate = false
+init_value = 0
+
+[node name="Hope" parent="UI/MoraleManager" instance=ExtResource("13_mxkvs")]
+offset_left = 813.0
+offset_top = 1021.0
+offset_right = 1113.0
+offset_bottom = 1041.0
+value = 20.0
+title = "Hope"
+color = Color(0.0933935, 0.432537, 0.752284, 1)
+animate = false
+init_value = 20
+
+[node name="BuildToolTip" type="Label" parent="."]
+offset_left = -159.0
+offset_top = 5.0
+offset_right = -64.0
+offset_bottom = 28.0
+text = "Build tooltip"
+
+[node name="BuildingSpawner" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("16_71ii3")
+scene = ExtResource("17_bt7bg")
+
+[node name="SkillTree" type="Button" parent="."]
+offset_left = 1177.0
+offset_top = 996.0
+offset_right = 1255.0
+offset_bottom = 1027.0
+text = "Skill Tree
+"
+
+[connection signal="pressed" from="BuildButton" to="." method="_on_build_button_pressed"]
+[connection signal="pressed" from="NextTurn" to="." method="_on_next_turn_pressed"]
+[connection signal="pressed" from="NextTurn2" to="." method="_on_next_turn_2_pressed"]
+[connection signal="pressed" from="SkillTree" to="." method="_on_skill_tree_pressed"]

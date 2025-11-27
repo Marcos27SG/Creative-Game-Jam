@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=3 format=3 uid="uid://ccwslae07orc8"]
+
+[ext_resource type="ArrayMesh" uid="uid://c2o088ehalim7" path="res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_church_blue.res" id="1_cxpo8"]
+[ext_resource type="Script" uid="uid://c15sv8n8me2d2" path="res://data/buildings/structure.gd" id="2_jvlq1"]
+
+[resource]
+script = ExtResource("2_jvlq1")
+name = "Third Building"
+model = ExtResource("1_cxpo8")
+construction_turns = 3
+metadata/_custom_type_script = "uid://c15sv8n8me2d2"

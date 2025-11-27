@@ -1,0 +1,126 @@
+[gd_scene load_steps=17 format=3 uid="uid://bly35rdgw21ns"]
+
+[ext_resource type="Script" uid="uid://bi1i5eyrv6r8r" path="res://arena.gd" id="1_fu4bq"]
+[ext_resource type="PackedScene" uid="uid://3iddfpwj615e" path="res://unit.tscn" id="2_27ga2"]
+[ext_resource type="MeshLibrary" uid="uid://b20aesk2htmx4" path="res://MeshLibrary/PlatformMeshLibrary.tres" id="3_pbtuc"]
+[ext_resource type="Script" uid="uid://d35yqiqt3elib" path="res://components/play_area.gd" id="4_yokb4"]
+[ext_resource type="Script" uid="uid://0c1lktulq74k" path="res://components/unit_grid.gd" id="5_35c7g"]
+[ext_resource type="Script" uid="uid://bigmjfyhsjcoo" path="res://components/tile_highlighter.gd" id="6_n068f"]
+[ext_resource type="ArrayMesh" uid="uid://b02iapdl2540e" path="res://assets/3D/Platform_highlight_platform.res" id="6_sbb53"]
+[ext_resource type="Script" uid="uid://cm113bcneahh4" path="res://data/units/unit_stats.gd" id="8_n068f"]
+[ext_resource type="Script" uid="uid://b3hhnms6d0ve1" path="res://components/unit_mover.gd" id="8_yokb4"]
+[ext_resource type="Material" uid="uid://bt2jc770br3ib" path="res://assets/3D/Units_material.tres" id="9_g8a64"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h0wof"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_fu4bq"]
+sky_material = SubResource("ProceduralSkyMaterial_h0wof")
+
+[sub_resource type="Environment" id="Environment_sbb53"]
+background_mode = 2
+sky = SubResource("Sky_fu4bq")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_shr7q"]
+material = ExtResource("9_g8a64")
+radius = 0.25
+height = 1.0
+
+[sub_resource type="Resource" id="Resource_uvldv"]
+resource_local_to_scene = true
+script = ExtResource("8_n068f")
+name = "Bjorn"
+rarity = 0
+gold_cost = 1
+tier = 1
+pool_count = 5
+skin_coordinates = SubResource("CapsuleMesh_shr7q")
+
+[sub_resource type="Resource" id="Resource_nb1nt"]
+resource_local_to_scene = true
+script = ExtResource("8_n068f")
+name = "Bjorn"
+rarity = 0
+gold_cost = 1
+tier = 1
+pool_count = 5
+skin_coordinates = SubResource("CapsuleMesh_shr7q")
+
+[node name="Arena" type="Node3D"]
+script = ExtResource("1_fu4bq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sbb53")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.607376, 0.794415, 0, -0.794415, 0.607376, 5.076, 3.436, 7.10141)
+projection = 1
+size = 8.5
+near = 0.096
+
+[node name="PlayArea" type="GridMap" parent="." node_paths=PackedStringArray("unit_grid", "tile_highlighter")]
+mesh_library = ExtResource("3_pbtuc")
+cell_size = Vector3(1, 0.001, 1)
+data = {
+"cells": PackedInt32Array(0, 0, 2, 0, 1, 2, 1, 1, 2, 2, 1, 2, 3, 1, 2, 4, 1, 2, 4, 0, 2, 3, 0, 2, 2, 0, 2, 1, 0, 2, 4, 2, 2, 3, 2, 2, 2, 2, 2, 1, 2, 2, 0, 2, 2, 4, 5, 2, 4, 4, 2, 4, 3, 2, 3, 3, 2, 2, 3, 2, 1, 3, 2, 0, 3, 2, 0, 4, 2, 1, 4, 2, 2, 4, 2, 3, 4, 2, 3, 5, 2, 2, 5, 2, 1, 5, 2, 0, 5, 2, 5, 5, 2, 6, 5, 2, 7, 5, 2, 7, 4, 2, 5, 4, 2, 6, 4, 2, 6, 3, 2, 6, 2, 2, 6, 1, 2, 6, 0, 2, 5, 0, 2, 5, 1, 2, 5, 2, 2, 5, 3, 2, 7, 3, 2, 7, 2, 2, 7, 0, 2, 7, 1, 2, 0, 6, 2, 1, 6, 2, 2, 6, 2, 3, 6, 2, 4, 6, 2, 5, 6, 2, 6, 6, 2, 7, 6, 2, 8, 6, 2, 9, 6, 2, 9, 0, 2, 8, 0, 2, 8, 1, 2, 8, 2, 2, 8, 3, 2, 8, 4, 2, 8, 5, 2, 9, 5, 2, 9, 4, 2, 9, 3, 2, 9, 2, 2, 9, 1, 2)
+}
+script = ExtResource("4_yokb4")
+unit_grid = NodePath("ArenaUnitGrid")
+tile_highlighter = NodePath("TileHighlighter")
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="ArenaUnitGrid" type="Node3D" parent="PlayArea"]
+script = ExtResource("5_35c7g")
+size = Vector2i(4, 7)
+
+[node name="TileHighlighter" type="Node3D" parent="PlayArea" node_paths=PackedStringArray("play_area", "highlight_mesh")]
+script = ExtResource("6_n068f")
+play_area = NodePath("..")
+highlight_mesh = NodePath("../PlatformHighlightPlatform2")
+
+[node name="PlatformHighlightPlatform2" type="MeshInstance3D" parent="PlayArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6277, 0.79747, 2.91276)
+mesh = ExtResource("6_sbb53")
+
+[node name="Bench" type="GridMap" parent="." node_paths=PackedStringArray("unit_grid", "tile_highlighter")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+mesh_library = ExtResource("3_pbtuc")
+cell_size = Vector3(1, 0.001, 1)
+data = {
+"cells": PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0)
+}
+script = ExtResource("4_yokb4")
+unit_grid = NodePath("BenchUnitGrid")
+tile_highlighter = NodePath("TileHighlighter")
+
+[node name="Unit" parent="Bench" instance=ExtResource("2_27ga2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.480642, 0.801497, 0.39271)
+stats = SubResource("Resource_uvldv")
+
+[node name="Unit2" parent="Bench" instance=ExtResource("2_27ga2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.480642, 0.801497, 0.39271)
+stats = SubResource("Resource_nb1nt")
+
+[node name="BenchUnitGrid" type="Node3D" parent="Bench"]
+script = ExtResource("5_35c7g")
+size = Vector2i(10, 1)
+
+[node name="TileHighlighter" type="Node3D" parent="Bench" node_paths=PackedStringArray("play_area", "highlight_mesh")]
+script = ExtResource("6_n068f")
+play_area = NodePath("..")
+highlight_mesh = NodePath("../PlatformHighlightPlatform")
+
+[node name="PlatformHighlightPlatform" type="MeshInstance3D" parent="Bench"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6277, 0.79747, -5.08724)
+mesh = ExtResource("6_sbb53")
+skeleton = NodePath("../../PlayArea")
+
+[node name="UnitMover" type="Node" parent="."]
+script = ExtResource("8_yokb4")

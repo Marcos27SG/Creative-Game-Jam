@@ -1,0 +1,66 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://d3tm1ku68x0k4"]
+
+[ext_resource type="FontFile" uid="uid://cwodp6tl4gn1t" path="res://assets/theme/SourceSerifPro-SemiBold.ttf" id="1_nnpem"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h801"]
+draw_center = false
+border_color = Color(2.40654e-07, 0.561759, 0.438848, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nnpem"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnpem"]
+draw_center = false
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pg7d"]
+bg_color = Color(0, 0.678052, 0.743477, 1)
+draw_center = false
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bevqr"]
+bg_color = Color(0.648915, 0.411756, 0.53995, 0)
+border_color = Color(2.40654e-07, 0.561759, 0.438848, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m27i7"]
+bg_color = Color(0.10748, 0.10748, 0.10748, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.894766, 1, 0.989126, 0.52549)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+default_font = ExtResource("1_nnpem")
+default_font_size = 20
+Button/colors/font_color = Color(0.907856, 0.912271, 0.924345, 1)
+Button/colors/font_disabled_color = Color(0.336597, 0.780484, 0.813728, 0.5)
+Button/colors/font_focus_color = Color(0.441579, 0.723502, 0.905841, 1)
+Button/colors/font_hover_color = Color(0, 0.6, 0.654902, 1)
+Button/colors/font_outline_color = Color(0.0345384, 0.163481, 0.11599, 1)
+Button/colors/font_pressed_color = Color(6.13667e-07, 0.256709, 0.249367, 1)
+Button/constants/outline_size = 5
+Button/fonts/font = ExtResource("1_nnpem")
+Button/styles/disabled = SubResource("StyleBoxFlat_3h801")
+Button/styles/focus = SubResource("StyleBoxEmpty_nnpem")
+Button/styles/hover = SubResource("StyleBoxFlat_nnpem")
+Button/styles/normal = SubResource("StyleBoxFlat_6pg7d")
+Button/styles/pressed = SubResource("StyleBoxFlat_bevqr")
+Panel/styles/panel = SubResource("StyleBoxFlat_m27i7")

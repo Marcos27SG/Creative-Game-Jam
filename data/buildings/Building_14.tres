@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=3 format=3 uid="uid://cl6ka138mqyao"]
+
+[ext_resource type="ArrayMesh" uid="uid://day5xidw4ekpd" path="res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_blacksmith_blue.res" id="1_f3ir2"]
+[ext_resource type="Script" uid="uid://c15sv8n8me2d2" path="res://data/buildings/structure.gd" id="2_v212i"]
+
+[resource]
+script = ExtResource("2_v212i")
+name = "Third Building"
+description = ""
+category = "General"
+model = ExtResource("1_f3ir2")
+construction_cost = {}
+construction_turns = 3
+production_data = {}
+production_interval = 1
+size = Vector2i(1, 1)
+building_type = 1
+population_capacity = 0
+resource_generation = {}
+resource_consumption = {}
+metadata/_custom_type_script = "uid://c15sv8n8me2d2"

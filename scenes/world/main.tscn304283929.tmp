@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlogcwl25w64q"]
+
+[ext_resource type="Script" uid="uid://0atgvdgf2fnb" path="res://scenes/Main/view.gd" id="1_gol0p"]
+[ext_resource type="Script" uid="uid://cb48bd8uejt3s" path="res://scenes/Main/builder.gd" id="2_br8qb"]
+[ext_resource type="Script" uid="uid://c15sv8n8me2d2" path="res://data/buildings/structure.gd" id="3_8gcrf"]
+[ext_resource type="Resource" uid="uid://ubnek0p5wqtu" path="res://data/buildings/FirstBuilding.tres" id="4_rdp1x"]
+[ext_resource type="Resource" uid="uid://3rbm4ceh8g3p" path="res://data/buildings/SecondBuilding.tres" id="5_rdp1x"]
+[ext_resource type="Texture2D" uid="uid://cw3gh8c53yfk6" path="res://assets/2D/selector.png" id="6_nyu32"]
+[ext_resource type="Script" uid="uid://jr31e1ot2tgo" path="res://scenes/Main/build_area_grid.gd" id="7_5wuev"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gol0p"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_br8qb"]
+sky_material = SubResource("ProceduralSkyMaterial_gol0p")
+
+[sub_resource type="Environment" id="Environment_px18m"]
+background_mode = 2
+sky = SubResource("Sky_br8qb")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gol0p"]
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_px18m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="."]
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+
+[node name="View" type="Node3D" parent="."]
+transform = Transform3D(0.707107, 0.40558, -0.579228, 0, 0.819152, 0.573576, 0.707107, -0.40558, 0.579228, 0, 0, 0)
+script = ExtResource("1_gol0p")
+
+[node name="Camera3D" type="Camera3D" parent="View"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+fov = 20.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PlaneMesh_gol0p")
+skeleton = NodePath("")
+
+[node name="Builder" type="Node3D" parent="." node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "build_area_grid")]
+script = ExtResource("2_br8qb")
+structures = Array[ExtResource("3_8gcrf")]([ExtResource("4_rdp1x"), ExtResource("5_rdp1x")])
+selector = NodePath("Selector")
+selector_container = NodePath("Selector/Container")
+view_camera = NodePath("../View/Camera3D")
+gridmap = NodePath("../GridMap")
+build_area_grid = NodePath("../BuildAreaGrid")
+
+[node name="Selector" type="Node3D" parent="Builder"]
+
+[node name="Sprite" type="Sprite3D" parent="Builder/Selector"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+modulate = Color(1, 0.00999999, 0.00999999, 1)
+texture = ExtResource("6_nyu32")
+
+[node name="Container" type="Node3D" parent="Builder/Selector"]
+
+[node name="BuildAreaGrid" type="Node3D" parent="." node_paths=PackedStringArray("gridmap")]
+script = ExtResource("7_5wuev")
+gridmap = NodePath("../GridMap")

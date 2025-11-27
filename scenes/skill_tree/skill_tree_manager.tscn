@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=3 uid="uid://bccvfcnqpk47a"]
+
+[ext_resource type="Script" uid="uid://bgfocmx7hjmiy" path="res://scenes/skill_tree/skill_tree_manager.gd" id="1_ufg8h"]
+[ext_resource type="Script" uid="uid://sj3scet3ab1d" path="res://data/skill_tree/decision.gd" id="2_aeskt"]
+[ext_resource type="PackedScene" uid="uid://cw8vb1ukhmmq6" path="res://scenes/skill_tree/skill_tree.tscn" id="2_jj0s0"]
+[ext_resource type="Resource" uid="uid://ls440qrmcib8" path="res://data/skill_tree/0_extra_turn.tres" id="3_mc8tq"]
+[ext_resource type="Resource" uid="uid://c1wc714it1501" path="res://data/skill_tree/1_guardian.tres" id="4_3muxc"]
+[ext_resource type="Resource" uid="uid://bmq7y4blvpgw4" path="res://data/skill_tree/2_G_defensive_stance.tres" id="5_3u5jt"]
+[ext_resource type="Resource" uid="uid://da6lcmyjsujt4" path="res://data/skill_tree/2_G_offensive_strike.tres" id="6_ou578"]
+[ext_resource type="Resource" uid="uid://5k05mkddxbws" path="res://data/skill_tree/1_archer.tres" id="7_3u5jt"]
+[ext_resource type="Resource" uid="uid://dve03xe4iwuvy" path="res://data/skill_tree/2_A_Explosive_Arrow.tres" id="8_ou578"]
+[ext_resource type="Resource" uid="uid://c6io5f1pf8qah" path="res://data/skill_tree/2_A_Precision_Shot.tres" id="9_0dvgv"]
+
+[node name="SkillManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ufg8h")
+decisions = Array[ExtResource("2_aeskt")]([ExtResource("3_mc8tq"), ExtResource("4_3muxc"), ExtResource("5_3u5jt"), ExtResource("6_ou578"), ExtResource("7_3u5jt"), ExtResource("8_ou578"), ExtResource("9_0dvgv")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+
+[node name="SkillTreeUI" parent="." instance=ExtResource("2_jj0s0")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1813.0
+offset_top = 50.0
+offset_right = 1863.0
+offset_bottom = 81.0
+text = "Close"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

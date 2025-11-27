@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgpfxbcolumr2"]
+
+[ext_resource type="Script" uid="uid://hkt2sg1xurej" path="res://scenes/run/run_manager.gd" id="1_8rlou"]
+[ext_resource type="Script" uid="uid://dtai7k183o6wx" path="res://scenes/run/pause_menu.gd" id="2_gqbdr"]
+[ext_resource type="PackedScene" uid="uid://cyywn5is25bfs" path="res://scenes/settings_menu/settings_menu.tscn" id="2_o4jfg"]
+[ext_resource type="PackedScene" uid="uid://dlogcwl25w64q" path="res://scenes/world/world.tscn" id="3_o4jfg"]
+
+[node name="Run" type="Node"]
+script = ExtResource("1_8rlou")
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 3
+visible = false
+script = ExtResource("2_gqbdr")
+
+[node name="SettingsMenu" parent="PauseMenu" instance=ExtResource("2_o4jfg")]
+
+[node name="SaveQuit" type="Button" parent="PauseMenu"]
+offset_left = 1481.0
+offset_top = 827.0
+offset_right = 1563.0
+offset_bottom = 858.0
+text = "Save Quit"
+
+[node name="GoBack" type="Button" parent="PauseMenu"]
+offset_left = 9.0
+offset_top = 767.0
+offset_right = 80.0
+offset_bottom = 798.0
+text = "Go Back"
+
+[node name="ArenaButton" type="Button" parent="."]
+visible = false
+offset_left = 1631.0
+offset_top = 895.0
+offset_right = 1686.0
+offset_bottom = 926.0
+text = "Arena"
+
+[node name="WorldButton" type="Button" parent="."]
+visible = false
+offset_left = 73.0
+offset_top = 916.0
+offset_right = 128.0
+offset_bottom = 947.0
+text = "World"
+
+[node name="CurrentView" type="Node3D" parent="."]
+
+[node name="World" parent="CurrentView" instance=ExtResource("3_o4jfg")]
+
+[connection signal="pressed" from="ArenaButton" to="." method="_on_arena_button_pressed"]
+[connection signal="pressed" from="WorldButton" to="." method="_on_world_button_pressed"]

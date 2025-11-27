@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=3 format=3 uid="uid://brncnc3lah1c3"]
+
+[ext_resource type="ArrayMesh" uid="uid://du2e1h7fe52d" path="res://assets/3D/Buildings/Buildings_Stone_Rebellion_building_tower_base_blue.res" id="1_73hj2"]
+[ext_resource type="Script" uid="uid://c15sv8n8me2d2" path="res://data/buildings/structure.gd" id="2_05g38"]
+
+[resource]
+script = ExtResource("2_05g38")
+name = "Third Building"
+description = ""
+category = "General"
+model = ExtResource("1_73hj2")
+construction_cost = {}
+construction_turns = 3
+production_data = {}
+production_interval = 1
+size = Vector2i(1, 1)
+building_type = 0
+population_capacity = 0
+resource_generation = {}
+resource_consumption = {}
+metadata/_custom_type_script = "uid://c15sv8n8me2d2"

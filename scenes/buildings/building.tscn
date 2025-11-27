@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://crg5ck6jvyg3l"]
+
+[ext_resource type="Script" uid="uid://cci5rgydisl2y" path="res://scenes/buildings/building.gd" id="1_64dnl"]
+[ext_resource type="Script" uid="uid://7q4fu8x4hlo4" path="res://components/highlighter.gd" id="2_64dnl"]
+[ext_resource type="ArrayMesh" uid="uid://cexk2ycttfekm" path="res://assets/3D/Buildings/Buildings_Stone_Rebellion_workshop.res" id="2_qcxio"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_64dnl"]
+size = Vector3(0.7, 0.7, 0.7)
+
+[node name="Building" type="Area3D"]
+script = ExtResource("1_64dnl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_qcxio")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.308115, 0.0206611)
+shape = SubResource("BoxShape3D_64dnl")
+debug_color = Color(0.897131, 5.4099e-05, 0.675126, 1)
+
+[node name="Highlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("2_64dnl")
+visuals = NodePath("../MeshInstance3D")
+highlight_color = Color(0, 0.678566, 0.680942, 1)
+
+[node name="ResourceProduced" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Test123"
+
+[node name="TimerShowing" type="Timer" parent="ResourceProduced"]
+wait_time = 2.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

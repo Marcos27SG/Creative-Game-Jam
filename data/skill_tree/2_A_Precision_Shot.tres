@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Decision" load_steps=2 format=3 uid="uid://c6io5f1pf8qah"]
+
+[ext_resource type="Script" uid="uid://sj3scet3ab1d" path="res://data/skill_tree/decision.gd" id="1_o5gm5"]
+
+[resource]
+script = ExtResource("1_o5gm5")
+id = "precision_shot"
+title = "Precision Shot"
+description = "Archers gain 25% increased critical hit chance on single targets."
+cost = 3
+previous_decisions = Array[String](["archer_training"])
+next_decisions = Array[String]([])
+mutually_exclusive_with = Array[String](["explosive_arrow"])
+layer = 2
+is_unlocked = false
+is_completed = false
+is_locked_out = false
+tree_position = Vector2(200, 400)
+metadata/_custom_type_script = "uid://sj3scet3ab1d"

@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpu7ero07ao65"]
+
+[ext_resource type="Texture2D" uid="uid://cl3dpkvtebrtg" path="res://assets/UI/crystal.png" id="1_lfs1h"]
+[ext_resource type="Script" uid="uid://rq5migi8tiko" path="res://scenes/ui_world/world_resources.gd" id="1_x7qbi"]
+[ext_resource type="Texture2D" uid="uid://bdoi3fittkl5k" path="res://assets/UI/Scrap.png" id="2_x7qbi"]
+[ext_resource type="Texture2D" uid="uid://wqge3xissf8" path="res://assets/UI/Battery.png" id="3_cffvp"]
+
+[node name="WorldResources" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -533.5
+offset_right = -328.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/separation = 5
+script = ExtResource("1_x7qbi")
+
+[node name="CrystalText" type="Label" parent="."]
+custom_minimum_size = Vector2(37, 0)
+layout_mode = 2
+text = "9999"
+horizontal_alignment = 2
+
+[node name="CrystalArt" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("1_lfs1h")
+expand_mode = 2
+
+[node name="ScrapText" type="Label" parent="."]
+custom_minimum_size = Vector2(37, 0)
+layout_mode = 2
+text = "9999"
+horizontal_alignment = 2
+
+[node name="ScrapArt" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("2_x7qbi")
+expand_mode = 2
+
+[node name="BatteryText" type="Label" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = "99"
+horizontal_alignment = 2
+
+[node name="BatteryArt" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("3_cffvp")
+expand_mode = 2

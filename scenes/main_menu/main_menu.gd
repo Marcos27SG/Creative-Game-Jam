@@ -20,7 +20,7 @@ var original_texts: Dictionary ={}
 func _ready() -> void:
 	get_tree().paused = false
 	continue_button.disabled = true
-	
+	Events.settings_closed.connect(_on_return_button_pressed)
 
 
 

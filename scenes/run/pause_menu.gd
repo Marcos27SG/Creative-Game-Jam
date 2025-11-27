@@ -6,7 +6,7 @@ signal save_and_quit
 
 #@onready var back_to_game_button: Button = %BackToGameButton
 #@onready var save_and_quit_button: Button = %SaveAndQuitButton
-@onready var settings_menu: Control = $SettingsMenu
+#@onready var settings_menu: Control = $SettingsMenu
 @onready var save_quit: Button = $SaveQuit
 @onready var go_back: Button = $GoBack
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hkt2sg1xurej" path="res://scenes/run/run_manager.gd" id="1_8rlou"]
 [ext_resource type="Script" uid="uid://dtai7k183o6wx" path="res://scenes/run/pause_menu.gd" id="2_gqbdr"]
-[ext_resource type="PackedScene" uid="uid://cyywn5is25bfs" path="res://scenes/settings_menu/settings_menu.tscn" id="2_o4jfg"]
+[ext_resource type="PackedScene" uid="uid://dec1fal4ww57l" path="res://scenes/main_menu/settings/settings_ui.tscn" id="3_gqbdr"]
 [ext_resource type="PackedScene" uid="uid://dlogcwl25w64q" path="res://scenes/world/world.tscn" id="3_o4jfg"]
 
 [node name="Run" type="Node"]
@@ -13,8 +13,6 @@ process_mode = 3
 layer = 3
 visible = false
 script = ExtResource("2_gqbdr")
-
-[node name="SettingsMenu" parent="PauseMenu" instance=ExtResource("2_o4jfg")]
 
 [node name="SaveQuit" type="Button" parent="PauseMenu"]
 offset_left = 1481.0
@@ -29,6 +27,8 @@ offset_top = 767.0
 offset_right = 80.0
 offset_bottom = 798.0
 text = "Go Back"
+
+[node name="settings_ui" parent="PauseMenu" instance=ExtResource("3_gqbdr")]
 
 [node name="ArenaButton" type="Button" parent="."]
 visible = false

@@ -27,6 +27,10 @@ TurnManager="*res://global/turn_manager.gd"
 VillageStats="*res://data/village/village_stats.gd"
 TooltipHandler="*res://global/tooptip_handler.tscn"
 GameEvents="*res://global/events.gd"
+SFXManager="*res://global/Sfx.tscn"
+SettingsManager="*res://global/settings_manager.gd"
+DisplayManager="*res://global/display_manager.gd"
+Events="*res://global/events.gd"
 
 [display]
 

@@ -5,7 +5,7 @@ signal resource_changed(resource_type: String, old_value: int, new_value: int)
 signal resources_changed
 
 var population_energy := 30 : set = set_population_energy
-var turns_per_day := 6
+var turns_per_day :=3
 var engine_life := 50 : set = set_engine_life
 #var stone : int = 100
 # Resources

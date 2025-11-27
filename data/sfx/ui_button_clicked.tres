@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXData" load_steps=3 format=3 uid="uid://bqmihm0h7rims"]
+
+[ext_resource type="Script" uid="uid://0k0us6w4d2my" path="res://global/sfx_data.gd" id="1_gvesm"]
+[ext_resource type="AudioStream" uid="uid://b7qk48uwcjm2c" path="res://assets/sfx/sfx_click_button.ogg" id="2_anhsg"]
+
+[resource]
+script = ExtResource("1_gvesm")
+type = 102
+sound_effect = ExtResource("2_anhsg")
+volume = -10
+metadata/_custom_type_script = "uid://0k0us6w4d2my"

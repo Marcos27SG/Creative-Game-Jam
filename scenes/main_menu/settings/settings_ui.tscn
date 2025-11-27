@@ -23,7 +23,6 @@ texture_margin_bottom = 8.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my0tk"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6p75v"]
-load_path = "res://.godot/imported/ui-elements.png-d4ed73a6a4fcc1e49d10caac392e786c.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqd6d"]
 atlas = SubResource("CompressedTexture2D_6p75v")

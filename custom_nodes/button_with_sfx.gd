@@ -1,10 +1,7 @@
 class_name ButtonWithSFX extends Button
-const SFX_CLICK_BUTTON = preload("uid://b7qk48uwcjm2c")
-const SFX_HOVER_BUTTON = preload("uid://dsvwuaipfkctn")
 
-@onready var mouse_entered_vfx: AudioStream = SFX_CLICK_BUTTON
-@onready var mouse_pressed_vfx: AudioStream = SFX_HOVER_BUTTON
-
+@export var mouse_entered_vfx: SFXData.Type = SFXData.Type.UI_BUTTON_ENTERED
+@export var mouse_pressed_vfx: SFXData.Type = SFXData.Type.UI_BUTTON_CLICKED
 
 @onready var hover_stylebox: StyleBox = get_theme_stylebox("hover")
 
@@ -17,11 +14,11 @@ func _ready() -> void :
 
 func _on_mouse_entered() -> void :
 	if !disabled:
-		SFXPlayer.play(mouse_entered_vfx)
+		SFXManager.create_audio(mouse_entered_vfx)
 
 func _on_pressed() -> void :
 	if !disabled:
-		SFXPlayer.play(mouse_pressed_vfx)
+		SFXManager.create_audio(mouse_pressed_vfx)
 
 func _on_focus_entered() -> void :
 

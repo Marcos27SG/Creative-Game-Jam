@@ -201,28 +201,26 @@ custom_minimum_size = Vector2(20, 20)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -75.0
-offset_top = 21.0
-offset_right = 75.0
-offset_bottom = 171.0
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 100.0
 grow_horizontal = 2
 
 [node name="TurnBar" parent="UI" instance=ExtResource("10_gb53w")]
-custom_minimum_size = Vector2(150, 150)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-offset_left = -75.0
-offset_top = 18.0
-offset_right = 75.0
-offset_bottom = 168.0
+offset_left = -50.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 1
-current_value = -206
-filled_color = Color(0.0409046, 0.642895, 0.506035, 1)
-empty_color = Color(0.348943, 0.361133, 0.408107, 1)
+current_value = 3
+filled_color = Color(0.7446857, 0.26675364, 1, 1)
+empty_color = Color(9.62615e-07, 0.4073377, 0.48389435, 1)
 segment_spacing_deg = 3.0
 thickness_ratio = 0.12
 
@@ -233,17 +231,17 @@ offset_right = -80.0
 offset_bottom = 47.0
 
 [node name="BuildButton" type="Button" parent="UI"]
-offset_left = 1154.0
-offset_top = 993.0
-offset_right = 1202.0
-offset_bottom = 1024.0
+offset_left = 834.0
+offset_top = 655.0
+offset_right = 882.0
+offset_bottom = 686.0
 text = "Build"
 
 [node name="NextTurn" type="Button" parent="UI"]
-offset_left = 1233.0
-offset_top = 994.0
-offset_right = 1319.0
-offset_bottom = 1025.0
+offset_left = 966.0
+offset_top = 659.0
+offset_right = 1052.0
+offset_bottom = 690.0
 text = "Next Turn"
 
 [node name="NextTurn2" type="Button" parent="UI"]
@@ -264,10 +262,10 @@ offset_bottom = 28.0
 text = "Build tooltip"
 
 [node name="SkillTree" type="Button" parent="UI"]
-offset_left = 703.0
-offset_top = 996.0
-offset_right = 781.0
-offset_bottom = 1027.0
+offset_left = 355.0
+offset_top = 640.0
+offset_right = 433.0
+offset_bottom = 671.0
 text = "Skill Tree
 "
 

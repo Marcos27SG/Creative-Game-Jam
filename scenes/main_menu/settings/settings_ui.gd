@@ -54,9 +54,9 @@ func show_and_fade_in() -> void :
 		_visibility_tween.kill()
 		hiding_settings_ui = false
 
-	var in_game = Game.instance() != null
-	exit_game_button.visible = in_game
-	exit_to_desktop_button.visible = in_game
+	#var in_game = Game.instance() != null
+	#exit_game_button.visible = in_game
+	#exit_to_desktop_button.visible = in_game
 
 	_settings_visible = true
 	show()

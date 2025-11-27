@@ -1,7 +1,7 @@
 class_name RadialSegmentedProgressBar
 extends Control
 
-@export var total_segments: int = 10
+@export var total_segments: int = 3
 @export var current_value: int = 4 : set = set_value
 @export var filled_color: Color = Color.RED
 @export var empty_color: Color = Color.DARK_GRAY

@@ -9,4 +9,5 @@ script = ExtResource("3_vdcr0")
 name = "Resource Digger"
 icon = ExtResource("1_3ge8s")
 model = ExtResource("2_3ge8s")
+rarity = 2
 metadata/_custom_type_script = "uid://c15sv8n8me2d2"

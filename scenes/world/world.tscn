@@ -1,33 +1,22 @@
-[gd_scene load_steps=41 format=4 uid="uid://dlogcwl25w64q"]
+[gd_scene load_steps=30 format=4 uid="uid://dlogcwl25w64q"]
 
 [ext_resource type="Script" uid="uid://ct2ersxwj0nlj" path="res://scenes/world/world.gd" id="1_dlabj"]
 [ext_resource type="Script" uid="uid://0atgvdgf2fnb" path="res://scenes/world/view.gd" id="1_t5ptc"]
 [ext_resource type="Script" uid="uid://cb48bd8uejt3s" path="res://scenes/world/builder.gd" id="2_bq33v"]
 [ext_resource type="Script" uid="uid://c15sv8n8me2d2" path="res://data/buildings/structure.gd" id="3_j2gmx"]
-[ext_resource type="Resource" uid="uid://dmp0x3b125die" path="res://data/buildings/FC_church.tres" id="5_5o5dd"]
-[ext_resource type="Resource" uid="uid://i0sv1j22vptn" path="res://data/buildings/FC_communication_post.tres" id="6_d0ajt"]
 [ext_resource type="Script" uid="uid://bgoupeuwujo52" path="res://scenes/world/grid_highlight.gd" id="7_bq33v"]
-[ext_resource type="Resource" uid="uid://b72k5mnt3k5f3" path="res://data/buildings/FC_Cookhouse.tres" id="7_fymcc"]
 [ext_resource type="Script" uid="uid://wp4ebv8w8wmq" path="res://scenes/world/building_handler.gd" id="8_71ii3"]
-[ext_resource type="Resource" uid="uid://vmdn1nwbwtgw" path="res://data/buildings/FC_GreenHouse.tres" id="8_lbnhc"]
-[ext_resource type="Resource" uid="uid://b14dpcxn54bjf" path="res://data/buildings/FC_House.tres" id="9_sygq6"]
 [ext_resource type="Resource" uid="uid://b0il2xqaggw3i" path="res://data/buildings/FC_MainCraft.tres" id="9_wbwoo"]
-[ext_resource type="Resource" uid="uid://w6erg6hj2ho2" path="res://data/buildings/FC_Medical_post.tres" id="10_0wrxw"]
 [ext_resource type="PackedScene" uid="uid://dax6y8b2qbc0m" path="res://scenes/segmented_progress_bar/segmented_progress_bar.tscn" id="10_gb53w"]
 [ext_resource type="PackedScene" uid="uid://bccvfcnqpk47a" path="res://scenes/skill_tree/skill_tree_manager.tscn" id="11_bt7bg"]
-[ext_resource type="Resource" uid="uid://bixpvoimyfn2o" path="res://data/buildings/FC_Monument.tres" id="11_cmg7y"]
-[ext_resource type="Resource" uid="uid://jvgceyeeivai" path="res://data/buildings/FC_ResearchFacility.tres" id="12_nqe8x"]
 [ext_resource type="Material" uid="uid://cwyg13d8wrnk7" path="res://materials/ground.tres" id="12_umvgx"]
 [ext_resource type="Script" uid="uid://u8f0blv3d67b" path="res://scenes/world/morale_manager.gd" id="13_m114p"]
 [ext_resource type="PackedScene" uid="uid://fxvcqexilpon" path="res://scenes/animated_progress_bar/animated_health_bar.tscn" id="13_mxkvs"]
-[ext_resource type="Resource" uid="uid://dni3i45tjocrh" path="res://data/buildings/FC_ResourceDigger.tres" id="13_sh7a8"]
-[ext_resource type="Resource" uid="uid://dr7c337a2ftd" path="res://data/buildings/FC_SolarPanel.tres" id="14_7mx70"]
 [ext_resource type="PackedScene" uid="uid://cqcjpv3f2qbyb" path="res://scenes/world/building_menu.tscn" id="14_umvgx"]
-[ext_resource type="Resource" uid="uid://cqc1uw232yh4k" path="res://data/buildings/FC_StorageDepot.tres" id="15_1cxds"]
-[ext_resource type="Resource" uid="uid://coujvlmliuxnb" path="res://data/buildings/FC_WasteRecicling.tres" id="16_2m0ga"]
 [ext_resource type="Script" uid="uid://cvimuwy4vbr6i" path="res://components/scene_spawner.gd" id="16_71ii3"]
 [ext_resource type="PackedScene" uid="uid://crg5ck6jvyg3l" path="res://scenes/buildings/building.tscn" id="17_bt7bg"]
 [ext_resource type="Shader" uid="uid://csyy3vid3m3tm" path="res://liquidfill.gdshader" id="24_fymcc"]
+[ext_resource type="PackedScene" uid="uid://yxtea4mvb3fy" path="res://scenes/FC_Building_Decision/building_decision.tscn" id="29_5o5dd"]
 [ext_resource type="PackedScene" uid="uid://d3x5y4m0vcnya" path="res://scenes/buildings/Building_info.tscn" id="31_lbnhc"]
 [ext_resource type="PackedScene" uid="uid://cpu7ero07ao65" path="res://scenes/ui_world/world_resources.tscn" id="32_sygq6"]
 [ext_resource type="Material" uid="uid://j1b31s5ucn6u" path="res://assets/3D/Troops/BuildingMaterial.tres" id="34_fymcc"]
@@ -137,7 +126,6 @@ size = 6.0
 
 [node name="Builder" type="Node3D" parent="." node_paths=PackedStringArray("selector", "selector_container", "view_camera", "gridmap", "grid_highlight", "tooltip_label")]
 script = ExtResource("2_bq33v")
-structures = Array[ExtResource("3_j2gmx")]([ExtResource("5_5o5dd"), ExtResource("6_d0ajt"), ExtResource("7_fymcc"), ExtResource("8_lbnhc"), ExtResource("9_sygq6"), ExtResource("10_0wrxw"), ExtResource("11_cmg7y"), ExtResource("12_nqe8x"), ExtResource("13_sh7a8"), ExtResource("14_7mx70"), ExtResource("15_1cxds"), ExtResource("16_2m0ga")])
 selector = NodePath("Selector")
 selector_container = NodePath("Selector/Container")
 view_camera = NodePath("../View/Camera3D")
@@ -323,6 +311,8 @@ visible = false
 
 [node name="BuildingInfo" parent="UI" instance=ExtResource("31_lbnhc")]
 visible = false
+
+[node name="BuildingDecision" parent="UI" instance=ExtResource("29_5o5dd")]
 
 [node name="BuildingSpawner" type="Node" parent="."]
 unique_name_in_owner = true

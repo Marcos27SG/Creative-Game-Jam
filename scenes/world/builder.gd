@@ -56,6 +56,11 @@ func _ready():
 		current_building_data = structures[0]
 		update_structure()
 	#update_cash()
+	#Events.add_building_to_structures.connect()
+
+func add_to_structures(building: BuildingData) -> void:
+	structures.append(building)
+	building_menu.setup_buildings(structures)
 
 func _process(delta):
 	if menu_mode_activated:

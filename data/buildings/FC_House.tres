@@ -9,4 +9,5 @@ script = ExtResource("3_mom0f")
 name = "House"
 icon = ExtResource("1_pbl36")
 model = ExtResource("2_pbl36")
+rarity = 1
 metadata/_custom_type_script = "uid://c15sv8n8me2d2"

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BuildingPool" load_steps=15 format=3 uid="uid://bplb0cwcqpgt4"]
+
+[ext_resource type="Script" uid="uid://c15sv8n8me2d2" path="res://data/buildings/structure.gd" id="1_gogwm"]
+[ext_resource type="Script" uid="uid://cgu7c6perhja1" path="res://data/buildings/building_pool.gd" id="2_4q483"]
+[ext_resource type="Resource" uid="uid://dmp0x3b125die" path="res://data/buildings/FC_church.tres" id="2_8k48q"]
+[ext_resource type="Resource" uid="uid://i0sv1j22vptn" path="res://data/buildings/FC_communication_post.tres" id="3_qq4me"]
+[ext_resource type="Resource" uid="uid://b72k5mnt3k5f3" path="res://data/buildings/FC_Cookhouse.tres" id="4_qrum0"]
+[ext_resource type="Resource" uid="uid://vmdn1nwbwtgw" path="res://data/buildings/FC_GreenHouse.tres" id="5_7g3s2"]
+[ext_resource type="Resource" uid="uid://b14dpcxn54bjf" path="res://data/buildings/FC_House.tres" id="6_an2mk"]
+[ext_resource type="Resource" uid="uid://w6erg6hj2ho2" path="res://data/buildings/FC_Medical_post.tres" id="8_vyxry"]
+[ext_resource type="Resource" uid="uid://bixpvoimyfn2o" path="res://data/buildings/FC_Monument.tres" id="9_v18jx"]
+[ext_resource type="Resource" uid="uid://jvgceyeeivai" path="res://data/buildings/FC_ResearchFacility.tres" id="10_1hymj"]
+[ext_resource type="Resource" uid="uid://dni3i45tjocrh" path="res://data/buildings/FC_ResourceDigger.tres" id="11_tdmc3"]
+[ext_resource type="Resource" uid="uid://dr7c337a2ftd" path="res://data/buildings/FC_SolarPanel.tres" id="12_7s5gm"]
+[ext_resource type="Resource" uid="uid://cqc1uw232yh4k" path="res://data/buildings/FC_StorageDepot.tres" id="13_iwf3u"]
+[ext_resource type="Resource" uid="uid://coujvlmliuxnb" path="res://data/buildings/FC_WasteRecicling.tres" id="14_l1fni"]
+
+[resource]
+script = ExtResource("2_4q483")
+available_buildings = Array[ExtResource("1_gogwm")]([ExtResource("2_8k48q"), ExtResource("3_qq4me"), ExtResource("4_qrum0"), ExtResource("5_7g3s2"), ExtResource("6_an2mk"), ExtResource("8_vyxry"), ExtResource("9_v18jx"), ExtResource("10_1hymj"), ExtResource("11_tdmc3"), ExtResource("12_7s5gm"), ExtResource("13_iwf3u"), ExtResource("14_l1fni")])
+metadata/_custom_type_script = "uid://cgu7c6perhja1"

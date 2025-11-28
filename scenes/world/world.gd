@@ -15,6 +15,7 @@ enum ClickMode {NONE, BUILD}
 var click_mode := ClickMode.NONE
 #@onready var wood: Label = $Wood
 #@onready var wood: Label = $UI/Wood
+@onready var building_decision: BuildingDecision = $UI/BuildingDecision
 
 # Run Manager Access
 @onready var world_ui: CanvasLayer = $UI
@@ -27,6 +28,8 @@ func _ready() -> void:
 	
 	_setup_turn_system()
 	_setup_ui()
+	building_decision.building_bought.connect(builder.add_to_structures)
+	
 	#_update_label()
 	#VillageStats.wood_changed.connect(_update_label)
 	

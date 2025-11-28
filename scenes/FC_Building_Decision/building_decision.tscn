@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://yxtea4mvb3fy"]
+
+[ext_resource type="Script" uid="uid://d4nfrtd34lu10" path="res://scenes/FC_Building_Decision/building_decision.gd" id="1_boon5"]
+[ext_resource type="Resource" uid="uid://bplb0cwcqpgt4" path="res://data/buildings/building_pool.tres" id="2_i50mc"]
+[ext_resource type="PackedScene" uid="uid://bsnojd3c0qy4a" path="res://scenes/FC_building_card/building_card.tscn" id="2_udyem"]
+[ext_resource type="Script" uid="uid://cvimuwy4vbr6i" path="res://components/scene_spawner.gd" id="3_udyem"]
+
+[node name="BuildingDecision" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -146.0
+offset_right = 97.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_boon5")
+building_pool = ExtResource("2_i50mc")
+
+[node name="ShopBuildings" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 154
+
+[node name="BuildingCardShop" parent="ShopBuildings" instance=ExtResource("2_udyem")]
+layout_mode = 2
+
+[node name="BuildingCardShop2" parent="ShopBuildings" instance=ExtResource("2_udyem")]
+layout_mode = 2
+
+[node name="BuildingCardShop3" parent="ShopBuildings" instance=ExtResource("2_udyem")]
+layout_mode = 2
+
+[node name="SceneSpawner" type="Node" parent="."]
+script = ExtResource("3_udyem")
+scene = ExtResource("2_udyem")

@@ -21,7 +21,7 @@ extends Resource
 
 @export_subgroup("Placement")
 @export var size: Vector2i = Vector2i(1, 1)
-
+var pool_count =1
 # Building type enum for better organization
 enum BuildingType {
 	RESOURCE,
@@ -29,6 +29,10 @@ enum BuildingType {
 	PRODUCTION,
 	TROOP
 }
+
+enum Rarity {COMMON, UNCOMMON, RARE, LEGENDARY}
+
+
 
 @export var building_type: BuildingType = BuildingType.RESOURCE
 
@@ -39,6 +43,10 @@ enum BuildingType {
 @export var population_capacity: int = 0
 @export var resource_generation: Dictionary = {} # e.g., {"wood": 2, "stone": 1}
 @export var resource_consumption: Dictionary = {} # e.g., {"food": 1}
+
+
+@export_subgroup("Rarity")
+@export var rarity: Rarity 
 
 # Method to get total cost as string for display
 #func get_cost_string() -> String:

@@ -9,4 +9,5 @@ script = ExtResource("3_hlada")
 name = "Communication Post"
 icon = ExtResource("1_q04eu")
 model = ExtResource("2_q04eu")
+rarity = 1
 metadata/_custom_type_script = "uid://c15sv8n8me2d2"

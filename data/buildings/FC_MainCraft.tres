@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BuildingData" load_steps=4 format=3 uid="uid://b0il2xqaggw3i"]
 
 [ext_resource type="Texture2D" uid="uid://datc1afcp1nx" path="res://assets/2D/BarbarianCard.png" id="1_bxq2d"]
-[ext_resource type="ArrayMesh" uid="uid://b5afpdtysghvk" path="res://assets/3D/Buildings/Moon/Buildings_Stone_Rebellion2_Cube.res" id="2_bxq2d"]
+[ext_resource type="ArrayMesh" uid="uid://buj048enu8tqy" path="res://assets/3D/Buildings/Moon/Buildings_Stone_Rebellion2_Cube.res" id="2_bxq2d"]
 [ext_resource type="Script" uid="uid://c15sv8n8me2d2" path="res://data/buildings/structure.gd" id="3_k0b61"]
 
 [resource]

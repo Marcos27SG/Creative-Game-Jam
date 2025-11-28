@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("3_8lfqb")
-name = "Resource Digger"
+name = "Solar Panel"
 icon = ExtResource("1_bln8g")
 model = ExtResource("2_bln8g")
 metadata/_custom_type_script = "uid://c15sv8n8me2d2"

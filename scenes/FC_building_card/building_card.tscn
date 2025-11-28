@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsnojd3c0qy4a"]
+
+[ext_resource type="Script" uid="uid://bv7sxqm3fnlro" path="res://scenes/FC_building_card/building_card.gd" id="1_f2d70"]
+[ext_resource type="Texture2D" uid="uid://b4ub0pr7nltxf" path="res://assets/2D/ArcherCard.png" id="2_xe4fa"]
+
+[node name="BuildingCardShop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 400.0
+script = ExtResource("1_f2d70")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 85.0
+offset_bottom = 197.0
+
+[node name="building_name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Building"
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_xe4fa")
+
+[node name="Description" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+text = "fdasfdsafdasfdsafdas"
+fit_content = true
+
+[node name="SelectBuilding" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Select"
+
+[connection signal="pressed" from="VBoxContainer/SelectBuilding" to="." method="_on_select_building_pressed"]

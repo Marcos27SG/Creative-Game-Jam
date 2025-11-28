@@ -33,6 +33,7 @@ func _on_new_run_pressed() -> void:
 func _on_options_pressed() -> void:
 	main_menu.hide()
 	options_menu.show()
+	Events.in_game = false
 
 
 

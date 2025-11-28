@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dec1fal4ww57l"]
+[gd_scene load_steps=17 format=3 uid="uid://dec1fal4ww57l"]
 
 [ext_resource type="Theme" uid="uid://cyhqhe4t6b0hs" path="res://assets/theme/ui_theme.tres" id="1_h3fc4"]
 [ext_resource type="Script" uid="uid://cdveqeb5ww2ib" path="res://scenes/main_menu/settings/settings_ui.gd" id="2_4t6ox"]
@@ -22,10 +22,8 @@ texture_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my0tk"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6p75v"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqd6d"]
-atlas = SubResource("CompressedTexture2D_6p75v")
+atlas = ExtResource("3_k18wy")
 region = Rect2(6, 292, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8stoe"]
@@ -143,7 +141,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_h472k")
 
 [node name="video" type="MarginContainer" parent="Panel/settings_menu/details" node_paths=PackedStringArray("display_mode_left_button", "display_mode_right_button", "display_mode_label_label", "display_mode_label", "display_res_left_button", "display_res_right_button", "display_res_label_label", "display_res_label")]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -217,7 +214,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Panel/settings_menu/details/video/VBoxContainer/resolution/resolution"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Display Mode"
+text = "Resolution"
 
 [node name="left" type="TextureButton" parent="Panel/settings_menu/details/video/VBoxContainer/resolution/resolution"]
 layout_mode = 2
@@ -359,6 +356,7 @@ text = "100"
 horizontal_alignment = 2
 
 [node name="language" type="MarginContainer" parent="Panel/settings_menu/details" node_paths=PackedStringArray("english_language_button", "spanish_language_button")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

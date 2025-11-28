@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=4 format=3 uid="uid://b14dpcxn54bjf"]
+
+[ext_resource type="Texture2D" uid="uid://cgr8h5j5q5w30" path="res://icon.svg" id="1_pbl36"]
+[ext_resource type="ArrayMesh" uid="uid://ba153kvj74b8r" path="res://assets/3D/Buildings/Moon/Buildings_Stone_Rebellion2_House.res" id="2_pbl36"]
+[ext_resource type="Script" uid="uid://c15sv8n8me2d2" path="res://data/buildings/structure.gd" id="3_mom0f"]
+
+[resource]
+script = ExtResource("3_mom0f")
+name = "House"
+icon = ExtResource("1_pbl36")
+model = ExtResource("2_pbl36")
+metadata/_custom_type_script = "uid://c15sv8n8me2d2"

@@ -7,7 +7,7 @@ signal day_ended (day_number: int)
 
 var current_turn: int = 0
 var current_day: int = 1
-var turns_per_day: int = 5
+var turns_per_day: int = VillageStats.turns_per_day
 
 func advance_turn() -> void:
 	turn_started.emit(current_turn + 1)

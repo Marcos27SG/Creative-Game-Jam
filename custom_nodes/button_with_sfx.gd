@@ -15,10 +15,12 @@ func _ready() -> void :
 func _on_mouse_entered() -> void :
 	if !disabled:
 		SFXManager.create_audio(mouse_entered_vfx)
+	print("sound mouse entered")
 
 func _on_pressed() -> void :
 	if !disabled:
 		SFXManager.create_audio(mouse_pressed_vfx)
+	print("sound  preseed")
 
 func _on_focus_entered() -> void :
 
@@ -26,6 +28,7 @@ func _on_focus_entered() -> void :
 	add_theme_stylebox_override("normal", hover_stylebox)
 	add_theme_stylebox_override("focus", StyleBoxEmpty.new())
 	queue_redraw()
+	print("sound focus")
 
 func _on_focus_exited() -> void :
 

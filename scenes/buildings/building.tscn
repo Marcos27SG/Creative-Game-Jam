@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cci5rgydisl2y" path="res://scenes/buildings/building.gd" id="1_64dnl"]
 [ext_resource type="Script" uid="uid://7q4fu8x4hlo4" path="res://components/highlighter.gd" id="2_64dnl"]
-[ext_resource type="ArrayMesh" uid="uid://cexk2ycttfekm" path="res://assets/3D/Buildings/Buildings_Stone_Rebellion_workshop.res" id="2_qcxio"]
+[ext_resource type="ArrayMesh" uid="uid://c6hbxwg0mpmbh" path="res://assets/3D/Buildings/Moon/Buildings_Stone_Rebellion2_WasteRecicling.res" id="2_qcxio"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_64dnl"]
 size = Vector3(0.7, 0.7, 0.7)
@@ -24,7 +24,6 @@ visuals = NodePath("../MeshInstance3D")
 highlight_color = Color(0, 0.678566, 0.680942, 1)
 
 [node name="ResourceProduced" type="Label" parent="."]
-visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Test123"

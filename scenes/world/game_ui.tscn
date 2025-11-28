@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddcmw4b8nx60i"]
+
+[ext_resource type="Theme" uid="uid://cyhqhe4t6b0hs" path="res://assets/theme/ui_theme.tres" id="1_g5mvq"]
+[ext_resource type="Script" uid="uid://2jvkfoeqi5u3" path="res://scenes/world/game_ui.gd" id="2_ec3bm"]
+[ext_resource type="Texture2D" uid="uid://dg35ocuhdy8oh" path="res://assets/theme/icons.png" id="2_ewn10"]
+[ext_resource type="Script" uid="uid://bgtbycqueqtbn" path="res://custom_nodes/button_with_sfx.gd" id="4_5synj"]
+[ext_resource type="PackedScene" uid="uid://dec1fal4ww57l" path="res://scenes/main_menu/settings/settings_ui.tscn" id="4_ec3bm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec3bm"]
+atlas = ExtResource("2_ewn10")
+region = Rect2(558, 28, 16, 16)
+
+[node name="GameUI" type="Control" node_paths=PackedStringArray("show_settings_button", "settings_ui")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_g5mvq")
+script = ExtResource("2_ec3bm")
+show_settings_button = NodePath("MarginContainer/HBoxContainer/Button")
+settings_ui = NodePath("settings_ui")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = SubResource("AtlasTexture_ec3bm")
+icon_alignment = 1
+script = ExtResource("4_5synj")
+
+[node name="settings_ui" parent="." instance=ExtResource("4_ec3bm")]
+visible = false
+z_index = 10
+layout_mode = 1

@@ -18,16 +18,18 @@ func _ready():
 func _setup_initial_buildings():
 	pass
 	_place_building(buildings_to_setup[0], Vector3i(-1, 0, -4), 0)     # Center
+	#_place_build
 	#_place_building(buildings_to_setup[1], Vector3i(3, 0, 0), 1)         # Offset
 
 func _place_building(data: BuildingData, origin_cell: Vector3i , mesh_index: int):
 	var building = BUILDING.instantiate()
 	building.building_data = data
 	add_child(building)
-
+	#var test = origin_cell + Vector3i(0, 5, 0) 
+	
 	# Base world position (top-left cell)
 	var world_pos = grid_map.map_to_local(origin_cell)
-
+	
 	# Offset to center the building model (if origin is at center of mesh)
 	var half_size_offset = Vector3(
 		(data.size.x - 1) * 0.5 * grid_map.cell_size.x,

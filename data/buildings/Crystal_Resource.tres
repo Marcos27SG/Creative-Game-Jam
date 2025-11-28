@@ -7,16 +7,7 @@
 [resource]
 script = ExtResource("3_7mb2e")
 name = "Crystal Resource"
-description = ""
 icon = ExtResource("1_ktxwh")
 category = "Not General"
 model = ExtResource("2_ktxwh")
-construction_cost = {}
 construction_turns = 2
-production_data = {}
-production_interval = 1
-size = Vector2i(1, 1)
-building_type = 0
-population_capacity = 0
-resource_generation = {}
-resource_consumption = {}

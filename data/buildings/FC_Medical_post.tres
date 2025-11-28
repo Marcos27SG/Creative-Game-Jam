@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=4 format=3 uid="uid://w6erg6hj2ho2"]
+
+[ext_resource type="Texture2D" uid="uid://cgr8h5j5q5w30" path="res://icon.svg" id="1_fpgni"]
+[ext_resource type="ArrayMesh" uid="uid://bhc4yuj7ilswc" path="res://assets/3D/Buildings/Moon/Buildings_Stone_Rebellion2_MedicalPost.res" id="2_fpgni"]
+[ext_resource type="Script" uid="uid://c15sv8n8me2d2" path="res://data/buildings/structure.gd" id="3_8uvog"]
+
+[resource]
+script = ExtResource("3_8uvog")
+name = "Medical Post"
+icon = ExtResource("1_fpgni")
+model = ExtResource("2_fpgni")
+metadata/_custom_type_script = "uid://c15sv8n8me2d2"

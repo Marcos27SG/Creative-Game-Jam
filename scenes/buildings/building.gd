@@ -77,7 +77,7 @@ func setup(data: BuildingData):
 
 func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	if event.is_action_pressed("select"):
-		GameEvents.building_clicked.emit(building_data)
+		Events.building_clicked.emit(building_data)
 		print("price",building_data.name)
 		#highlighter.highlight()
 

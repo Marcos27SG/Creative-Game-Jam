@@ -7,7 +7,7 @@ extends Panel
 
 func _ready() -> void:
 	visible = false
-	GameEvents.building_clicked.connect(setup)
+	Events.building_clicked.connect(setup)
 
 func setup(building :BuildingData) -> void:
 	visible = true

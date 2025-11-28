@@ -14,7 +14,6 @@ layer = 3
 script = ExtResource("2_gqbdr")
 
 [node name="GameUI" parent="UI" instance=ExtResource("3_gqbdr")]
-mouse_filter = 2
 
 [node name="CurrentView" type="Node3D" parent="."]
 

@@ -9,4 +9,5 @@ script = ExtResource("3_p0s4i")
 name = "Monument"
 icon = ExtResource("1_v0lu0")
 model = ExtResource("2_v0lu0")
+rarity = 2
 metadata/_custom_type_script = "uid://c15sv8n8me2d2"

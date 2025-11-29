@@ -17,30 +17,30 @@ var battery := 0
 #Population
 
 const ROLL_RARITIES := {
-	1:  [UnitStats.Rarity.COMMON],
-	2:  [UnitStats.Rarity.COMMON],
-	3:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON],
-	4:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE],
-	5:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE],
-	6:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE],
-	7:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE, UnitStats.Rarity.LEGENDARY],
-	8:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE, UnitStats.Rarity.LEGENDARY],
-	9:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE, UnitStats.Rarity.LEGENDARY],
-	10: [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE, UnitStats.Rarity.LEGENDARY],
-}
-const ROLL_CHANCES := {
-	1: [1],
-	2: [1],
-	3: [7.5, 2.5],
-	4: [6.5, 3.0, 0.5],
-	5: [5.0, 3.5, 1.5],
-	6: [4.0, 4.0, 2.0],
-	7: [2.75, 4.0, 3.24, 0.1],
-	8: [2.5, 3.75, 3.45, 0.3],
-	9: [1.75, 2.75, 4.5, 1.0],
-	10: [1.0, 2.0, 4.5, 2.5],
+	1:  [BuildingData.Rarity.COMMON],
+	2:  [BuildingData.Rarity.COMMON, BuildingData.Rarity.UNCOMMON],
+	3:  [BuildingData.Rarity.COMMON, BuildingData.Rarity.UNCOMMON],
+	4:  [BuildingData.Rarity.COMMON, BuildingData.Rarity.UNCOMMON, BuildingData.Rarity.RARE],
+	5:  [BuildingData.Rarity.COMMON, BuildingData.Rarity.UNCOMMON, BuildingData.Rarity.RARE],
+	6:  [BuildingData.Rarity.COMMON, BuildingData.Rarity.UNCOMMON, BuildingData.Rarity.RARE],
+	7:  [BuildingData.Rarity.COMMON, BuildingData.Rarity.UNCOMMON, BuildingData.Rarity.RARE, BuildingData.Rarity.LEGENDARY],
+	8:  [BuildingData.Rarity.COMMON, BuildingData.Rarity.UNCOMMON, BuildingData.Rarity.RARE, BuildingData.Rarity.LEGENDARY],
+	9:  [BuildingData.Rarity.COMMON, BuildingData.Rarity.UNCOMMON, BuildingData.Rarity.RARE, BuildingData.Rarity.LEGENDARY],
+	10: [BuildingData.Rarity.COMMON, BuildingData.Rarity.UNCOMMON, BuildingData.Rarity.RARE, BuildingData.Rarity.LEGENDARY],
 }
 
+const ROLL_CHANCES := {
+	1: [1.0],                        # 1 rarity = 1 weight
+	2: [7.5, 2.5],                   # 2 rarities = 2 weights
+	3: [7.5, 2.5],                   # 2 rarities = 2 weights
+	4: [6.5, 3.0, 0.5],              # 3 rarities = 3 weights
+	5: [5.0, 3.5, 1.5],              # 3 rarities = 3 weights
+	6: [4.0, 4.0, 2.0],              # 3 rarities = 3 weights
+	7: [2.75, 4.0, 3.24, 0.1],       # 4 rarities = 4 weights ✓
+	8: [2.5, 3.75, 3.45, 0.3],       # 4 rarities = 4 weights ✓
+	9: [1.75, 2.75, 4.5, 1.0],       # 4 rarities = 4 weights ✓
+	10: [1.0, 2.0, 4.5, 2.5],        # 4 rarities = 4 weights ✓
+}
 
 func set_population_energy(value: int) -> void:
 	var old_value = population_energy
@@ -97,10 +97,15 @@ func add_resources(resource: String , amount: int) -> void:
 	self[resource] += amount
 	resources_changed.emit()
 	
-	
 func get_random_rarity_for_level() -> BuildingData.Rarity:
 	var rng = RandomNumberGenerator.new()
-	var array: Array = ROLL_RARITIES[TurnManager.current_day]
-	var weights: PackedFloat32Array = PackedFloat32Array(ROLL_CHANCES[TurnManager.current_day])
-
+	var day = clamp(TurnManager.current_day, 1, 10)
+	var array: Array = ROLL_RARITIES[day]
+	var weights: PackedFloat32Array = PackedFloat32Array(ROLL_CHANCES[day])
+	
+	# Safety check
+	if weights.size() != array.size():
+		push_error("Mismatch between rarities and weights for day " + str(day))
+		return BuildingData.Rarity.COMMON
+	
 	return array[rng.rand_weighted(weights)]

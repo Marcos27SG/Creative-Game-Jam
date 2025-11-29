@@ -28,7 +28,7 @@ func _draw():
 		var start_angle_deg = i * (segment_angle + segment_spacing_deg) + angle_offset
 		var end_angle_deg = start_angle_deg + segment_angle
 
-		var is_filled = i < current_value
+		var is_filled = i >= (total_segments - current_value)
 		var color = filled_color if is_filled else empty_color
 		_draw_wedge(center, deg_to_rad(start_angle_deg), deg_to_rad(end_angle_deg), radius, inner_radius, color)
 

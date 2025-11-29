@@ -36,7 +36,6 @@ func _ready():
 	plane = Plane(Vector3.UP, Vector3.ZERO)
 
 	var mesh_library = MeshLibrary.new()
-	
 	for structure in structures:
 		
 		var id = mesh_library.get_last_unused_item_id()

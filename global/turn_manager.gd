@@ -4,11 +4,16 @@ signal turn_started (turn_number: int)
 signal turn_ended (turn_number: int)
 signal day_started (day_number: int)
 signal day_ended (day_number: int)
-signal stage_changed(day: int, stage: int)
-signal day_changed(day: int)
+
 var current_turn: int = 0
 var current_day: int = 1
-var turns_per_day: int = VillageStats.turns_per_day
+const TURNS_PER_DAY: int = 3
+const MAX_DAYS: int = 10
+enum TimeOfDay { DAWN, AFTERNOON, EVENING }
+
+#func _ready() -> void:
+	## Start the first turn automatically
+	#call_deferred("advance_turn")
 
 func advance_turn() -> void:
 	turn_started.emit(current_turn + 1)
@@ -19,45 +24,43 @@ func advance_turn() -> void:
 	
 	turn_ended.emit(current_turn)
 	
+	# Emit event based on time of day
+	var time_of_day = get_time_of_day()
+	match time_of_day:
+		TimeOfDay.DAWN:
+			print("Make the Strategy Decission")
+		TimeOfDay.AFTERNOON:
+			print("Make the Critical Decission")
+			#Events.progressDecisionEvent.emit()
+		TimeOfDay.EVENING:
+			Events.choiceBuildingEvent.emit()
+			print("Make the Critical Decission")
+			#Events.criticalDecisionEvent.emit()
+			if current_day == MAX_DAYS:
+				#game_won.emit()
+				print("🎉 Congratulations! You've completed all 9 days!")
 	# Check if day ended
-	if current_turn % turns_per_day == 0:
+	if current_turn % TURNS_PER_DAY == 0:
 		day_ended.emit(current_day)
 		current_day += 1
 		day_started.emit(current_day)
-		
-	print(current_day)
+	
+	print("Day: ", current_day, " Turn: ", current_turn, " Time: ", TimeOfDay.keys()[time_of_day])
 
 func _process_turn() -> void:
 	# This will be handled by systems that connect to the signals
 	pass
 
-func get_turns_remaining_in_day() -> int:
-	return turns_per_day - (current_turn % turns_per_day)
-#@onready var decision_manager: DecisionManager = $DecisionManager
-#@onready var game_state: GameState = $GameState
+func get_time_of_day() -> TimeOfDay:
+	var turn_in_day = ((current_turn - 1) % TURNS_PER_DAY)
+	match turn_in_day:
+		0: return TimeOfDay.DAWN
+		1: return TimeOfDay.AFTERNOON
+		2: return TimeOfDay.EVENING
+		_: return TimeOfDay.DAWN
 
-func _ready():
-	pass
-	# Connect to decision manager
-	#if decision_manager:
-		#decision_manager.decision_triggered.connect(_on_decision_triggered)
-#
-#func advance_stage() -> void:
-	#current_stage += 1
-	#
-	#if current_stage > stages_per_day:
-		#current_stage = 1
-		#current_day += 1
-		#day_changed.emit(current_day)
-	#
-	#stage_changed.emit(current_day, current_stage)
-	#
-	## Check for decisions to trigger
-	#if decision_manager:
-		#decision_manager.check_triggers(current_day, current_stage)
-#
-#func _on_decision_triggered(decision: Decision) -> void:
-	## Pause game or show decision UI
-	#print("Decision triggered: ", decision.title)
-	## You would typically pause the game here and show the UI
-	## get_tree().paused = true
+func get_turns_remaining_in_day() -> int:
+	return TURNS_PER_DAY - (current_turn % TURNS_PER_DAY)
+
+func get_time_of_day_name() -> String:
+	return TimeOfDay.keys()[get_time_of_day()]

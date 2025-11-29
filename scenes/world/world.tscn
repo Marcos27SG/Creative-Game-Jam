@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dlogcwl25w64q"]
+[gd_scene load_steps=29 format=4 uid="uid://dlogcwl25w64q"]
 
 [ext_resource type="Script" uid="uid://ct2ersxwj0nlj" path="res://scenes/world/world.gd" id="1_dlabj"]
 [ext_resource type="Script" uid="uid://0atgvdgf2fnb" path="res://scenes/world/view.gd" id="1_t5ptc"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://wp4ebv8w8wmq" path="res://scenes/world/building_handler.gd" id="8_71ii3"]
 [ext_resource type="Resource" uid="uid://b0il2xqaggw3i" path="res://data/buildings/FC_MainCraft.tres" id="9_wbwoo"]
 [ext_resource type="PackedScene" uid="uid://dax6y8b2qbc0m" path="res://scenes/segmented_progress_bar/segmented_progress_bar.tscn" id="10_gb53w"]
-[ext_resource type="PackedScene" uid="uid://bccvfcnqpk47a" path="res://scenes/skill_tree/skill_tree_manager.tscn" id="11_bt7bg"]
 [ext_resource type="Material" uid="uid://cwyg13d8wrnk7" path="res://materials/ground.tres" id="12_umvgx"]
 [ext_resource type="Script" uid="uid://u8f0blv3d67b" path="res://scenes/world/morale_manager.gd" id="13_m114p"]
 [ext_resource type="PackedScene" uid="uid://fxvcqexilpon" path="res://scenes/animated_progress_bar/animated_health_bar.tscn" id="13_mxkvs"]
@@ -302,9 +301,6 @@ title = "Hope"
 color = Color(0.0933935, 0.432537, 0.752284, 1)
 animate = false
 init_value = 20
-
-[node name="SkillManager" parent="UI" instance=ExtResource("11_bt7bg")]
-visible = false
 
 [node name="BuildingMenu" parent="UI" instance=ExtResource("14_umvgx")]
 visible = false

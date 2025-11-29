@@ -22,6 +22,7 @@ extends Resource
 @export_subgroup("Placement")
 @export var size: Vector2i = Vector2i(1, 1)
 var pool_count =1
+#var bought = false
 # Building type enum for better organization
 enum BuildingType {
 	RESOURCE,

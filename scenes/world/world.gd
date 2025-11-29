@@ -3,7 +3,7 @@ extends Node3D
 #@onready var grass: MultiMeshInstance3D = $Grass
 @onready var builder: BuilderSystem = $Builder
 #@onready var man_power_bar: SegmentedProgressBar = $ManPowerBar
-@onready var skill_manager: Control = $UI/SkillManager
+#@onready var skill_manager: Control = $UI/SkillManager
 @onready var turn_bar: RadialSegmentedProgressBar = $UI/TurnBar
 
 
@@ -39,9 +39,11 @@ func _ready() -> void:
 
 func _setup_turn_system() -> void:
 	# Initialize TurnManager
-	TurnManager.turns_per_day = turns_per_day
+	pass
+	#Test NewIdea
+	#TurnManager.turns_per_day = turns_per_day
 	TurnManager.turn_ended.connect(_on_turn_ended)
-	TurnManager.day_ended.connect(_on_day_ended)
+	#TurnManager.day_ended.connect(_on_day_ended)
 
 func _setup_ui() -> void:
 	turn_bar.total_segments = turns_per_day
@@ -91,7 +93,7 @@ func remove_building(building: Building) -> void:
 	buildings.erase(building)
 	building.queue_free()
 
-
-func _on_skill_tree_pressed() -> void:
+#
+#func _on_skill_tree_pressed() -> void:
 	
-	skill_manager.show()
+#	skill_manager.show()

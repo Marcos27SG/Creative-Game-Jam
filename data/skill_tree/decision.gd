@@ -1,5 +1,5 @@
 # Decision.gd - Resource that stores decision information
-class_name Decision
+class_name DecisionTest
 extends Resource
 
 @export var id: String

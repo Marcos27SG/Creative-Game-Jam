@@ -12,3 +12,6 @@ signal is_in_game(boolean)
 
 
 signal building_clicked(building_data: BuildingData)
+
+#Events
+signal choiceBuildingEvent

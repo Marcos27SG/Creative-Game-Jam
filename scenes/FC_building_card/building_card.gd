@@ -9,7 +9,7 @@ signal building_bought (building: BuildingData)
 @export var village_stats: VillageStats
 
 @export var building_stats: BuildingData : set = _set_building_stats
-
+var bought := false
 
 func _set_building_stats(value: BuildingData) -> void:
 	building_stats = value
@@ -21,5 +21,6 @@ func _set_building_stats(value: BuildingData) -> void:
 
 
 func _on_select_building_pressed() -> void:
+	bought = true
 	building_bought.emit(building_stats)
 	

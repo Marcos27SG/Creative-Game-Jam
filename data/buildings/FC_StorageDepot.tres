@@ -9,5 +9,5 @@ script = ExtResource("3_kj2fv")
 name = "Storage Depot"
 icon = ExtResource("1_pvwhu")
 model = ExtResource("2_pvwhu")
-rarity = 3
+rarity = 1
 metadata/_custom_type_script = "uid://c15sv8n8me2d2"

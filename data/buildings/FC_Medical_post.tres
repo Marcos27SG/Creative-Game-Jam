@@ -9,5 +9,5 @@ script = ExtResource("3_8uvog")
 name = "Medical Post"
 icon = ExtResource("1_fpgni")
 model = ExtResource("2_fpgni")
-rarity = 1
+rarity = 2
 metadata/_custom_type_script = "uid://c15sv8n8me2d2"

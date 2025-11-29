@@ -9,4 +9,5 @@ script = ExtResource("3_hpw83")
 name = "Waste Recicling"
 icon = ExtResource("1_xdsdp")
 model = ExtResource("2_xdsdp")
+rarity = 2
 metadata/_custom_type_script = "uid://c15sv8n8me2d2"

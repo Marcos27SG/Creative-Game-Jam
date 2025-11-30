@@ -43,7 +43,7 @@ func update_display() -> void:
 		#elif "cost" in building_data:
 			#cost_text = str(building_data.cost)
 		#cost_label.text = cost_text
-	cost_label.text =  str(building_data.construction_turns)
+	#cost_label.text =  str(building_data.construction_turns)
 	
 	# Update icon
 	if building_icon and "icon" in building_data and building_data.icon:

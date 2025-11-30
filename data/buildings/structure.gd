@@ -10,20 +10,26 @@ extends Resource
 @export_subgroup("Model")
 @export var model: Mesh
 
-
 @export_subgroup("Construction")
-@export var construction_cost: Dictionary = {} # {"wood": 10, "energy_stacks": 5}
-@export var construction_turns: int = 1
+@export var construction_cost: Dictionary = {} # {"scrap": 10, "energy": 5}
 
-@export_subgroup("Production")
-@export var production_data: Dictionary = {} # {"wood": 2} - produces 2 wood per turn
-@export var production_interval: int = 1 # Every N turns
+@export_subgroup("Production & Consumption")
+## Resources this building consumes each turn (e.g., {"energy": 2, "food": 1})
+@export var consumption_per_turn: Dictionary = {}
+## Resources this building produces each turn (e.g., {"food": 3, "morale": 1})
+@export var production_per_turn: Dictionary = {}
+## How many turns between production cycles (1 = every turn)
+@export var production_interval: int = 1
 
 @export_subgroup("Placement")
 @export var size: Vector2i = Vector2i(1, 1)
-var pool_count =1
-#var bought = false
-# Building type enum for better organization
+
+@export_subgroup("Rarity")
+@export var rarity: Rarity = Rarity.COMMON
+
+var pool_count = 1
+
+# Building type enum
 enum BuildingType {
 	RESOURCE,
 	PEOPLE,
@@ -31,65 +37,48 @@ enum BuildingType {
 	TROOP
 }
 
-enum Rarity {COMMON, UNCOMMON, RARE, LEGENDARY}
-
-
+enum Rarity {
+	COMMON, 
+	UNCOMMON, 
+	RARE, 
+	LEGENDARY
+}
 
 @export var building_type: BuildingType = BuildingType.RESOURCE
 
-# Building size (for placement validation)
-#@export var size: Vector2i = Vector2i(1, 1)
-
-# Building effects/bonuses
+# Additional properties (kept for compatibility)
 @export var population_capacity: int = 0
-@export var resource_generation: Dictionary = {} # e.g., {"wood": 2, "stone": 1}
-@export var resource_consumption: Dictionary = {} # e.g., {"food": 1}
 
-
-@export_subgroup("Rarity")
-@export var rarity: Rarity 
-
-# Method to get total cost as string for display
-#func get_cost_string() -> String:
-	#var cost_parts: Array[String] = []
-	#
-	#if wood_cost > 0:
-		#cost_parts.append(str(wood_cost) + " Wood")
-	#if stone_cost > 0:
-		#cost_parts.append(str(stone_cost) + " Stone")
-	#if cost > 0:
-		#cost_parts.append(str(cost) + " Gold")
-	#
-	#if cost_parts.is_empty():
-		#return "Free"
-	#
-	#return ", ".join(cost_parts)
-
-# Method to check if player can afford this building
+# Check if player can afford this building
 func can_afford() -> bool:
-	# Implement based on your resource system
-	# Example:
-	# return (VillageStats.wood >= wood_cost and 
-	#         VillageStats.stone >= stone_cost and
-	#         VillageStats.gold >= cost)
-	return true # Placeholder
+	return VillageStats.can_afford_cost(construction_cost)
 
-# Method to get category for tab organization
-#func get_category() -> String:
-	#if category.is_empty():
-		#match building_type:
-			#BuildingType.RESIDENTIAL:
-				#return "Housing"
-			#BuildingType.COMMERCIAL:
-				#return "Commerce"
-			#BuildingType.INDUSTRIAL:
-				#return "Industry"
-			#BuildingType.MILITARY:
-				#return "Military"
-			#BuildingType.DECORATION:
-				#return "Decoration"
-			#BuildingType.INFRASTRUCTURE:
-				#return "Infrastructure"
-			#_:
-				#return "General"
-	#return category
+# Get a formatted string of what this building consumes
+func get_consumption_string() -> String:
+	if consumption_per_turn.is_empty():
+		return "No consumption"
+	
+	var parts: Array[String] = []
+	for resource in consumption_per_turn:
+		parts.append("%d %s" % [consumption_per_turn[resource], resource.capitalize()])
+	return " | ".join(parts)
+
+# Get a formatted string of what this building produces
+func get_production_string() -> String:
+	if production_per_turn.is_empty():
+		return "No production"
+	
+	var parts: Array[String] = []
+	for resource in production_per_turn:
+		parts.append("+%d %s" % [production_per_turn[resource], resource.capitalize()])
+	return " | ".join(parts)
+
+# Get construction cost as string
+func get_cost_string() -> String:
+	if construction_cost.is_empty():
+		return "Free"
+	
+	var parts: Array[String] = []
+	for resource in construction_cost:
+		parts.append("%d %s" % [construction_cost[resource], resource.capitalize()])
+	return " | ".join(parts)

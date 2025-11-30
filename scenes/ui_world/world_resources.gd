@@ -10,6 +10,6 @@ func _ready() -> void:
 	VillageStats.resources_changed.connect(update_resources)
 	
 func update_resources() -> void:
-	crystal_text.text = str(VillageStats.crystal)
+	crystal_text.text = str(VillageStats.food)
 	scrap_text.text = str(VillageStats.scrap)
-	battery_text.text = str(VillageStats.battery)
+	battery_text.text = str(VillageStats.energy)

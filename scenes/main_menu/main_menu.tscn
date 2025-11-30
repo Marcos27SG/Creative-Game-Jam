@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2uic58na84gc"]
+[gd_scene load_steps=16 format=3 uid="uid://c2uic58na84gc"]
 
 [ext_resource type="Script" uid="uid://ct0ywfy8cvi5p" path="res://scenes/main_menu/main_menu.gd" id="1_fsom3"]
 [ext_resource type="Theme" uid="uid://cx7bf8sfphoqg" path="res://assets/theme/main_menu_theme.tres" id="3_uqeha"]
 [ext_resource type="Script" uid="uid://bgtbycqueqtbn" path="res://custom_nodes/button_with_sfx.gd" id="3_wem23"]
 [ext_resource type="PackedScene" uid="uid://dec1fal4ww57l" path="res://scenes/main_menu/settings/settings_ui.tscn" id="4_uqeha"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5seab"]
 
 [sub_resource type="Curve" id="Curve_uqeha"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.582376, 0.696945), -1.20331, -1.20331, 0, 0, Vector2(0.996169, 0.00723469), 0.0, 0.0, 0, 0]
@@ -70,6 +72,7 @@ theme = ExtResource("3_uqeha")
 script = ExtResource("1_fsom3")
 
 [node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5seab")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

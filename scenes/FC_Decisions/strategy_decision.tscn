@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://ba8k2rmp4c706"]
+
+[ext_resource type="Script" uid="uid://cbhl3b3825jxv" path="res://scenes/FC_Decisions/strategy_decision.gd" id="1_bxh6n"]
+[ext_resource type="Script" uid="uid://bto2bg242177d" path="res://data/decisions/decision.gd" id="2_lchk0"]
+[ext_resource type="Resource" uid="uid://c2y2m58rmv51r" path="res://data/decisions/Stra_Day_1_Decision.tres" id="3_du6xc"]
+[ext_resource type="Resource" uid="uid://b2ptwlrvhfypr" path="res://data/decisions/Stra_Day_2_Energy.tres" id="4_du6xc"]
+[ext_resource type="Resource" uid="uid://bcritfi101nv3" path="res://data/decisions/Stra_Day_3_Salvage.tres" id="5_v7w14"]
+[ext_resource type="Resource" uid="uid://3sao8gxta3lm" path="res://data/decisions/Stra_Day_4_Rationing.tres" id="6_ee8ce"]
+[ext_resource type="Resource" uid="uid://cid8ttlge17dn" path="res://data/decisions/Stra_Day_5_Entertainment.tres" id="7_iwkvg"]
+[ext_resource type="Resource" uid="uid://d2jb4f3qrqwlf" path="res://data/decisions/Stra_Day_6_Scrap.tres" id="8_e8stj"]
+[ext_resource type="Resource" uid="uid://810xcuqoyrt2" path="res://data/decisions/Stra_Day_7_Research.tres" id="9_wec4v"]
+[ext_resource type="Resource" uid="uid://qx5jqillgbj1" path="res://data/decisions/Stra_Day_8_Celebration.tres" id="10_6p8uc"]
+[ext_resource type="Resource" uid="uid://drd8gq2u1efls" path="res://data/decisions/Stra_Day_9_Emergency.tres" id="11_ykumc"]
+[ext_resource type="Resource" uid="uid://b2njysxxynsr2" path="res://data/decisions/Stra_Day_10_Morale.tres" id="12_t0bxv"]
+
+[node name="StrategyDecision" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bxh6n")
+decision_pool = Array[ExtResource("2_lchk0")]([ExtResource("3_du6xc"), ExtResource("4_du6xc"), ExtResource("5_v7w14"), ExtResource("6_ee8ce"), ExtResource("7_iwkvg"), ExtResource("8_e8stj"), ExtResource("9_wec4v"), ExtResource("10_6p8uc"), ExtResource("11_ykumc"), ExtResource("12_t0bxv")])
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -77.0
+offset_right = 102.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="decision_title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Decision"
+horizontal_alignment = 1
+
+[node name="decision_description" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+text = "fdsafdsafdsa
+fdsafads
+fdsafda
+fdsafdsa"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="First Choice" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="VBoxContainer/HBoxContainer/First Choice"]
+layout_mode = 2
+text = "fdsafdasfdasfdasf"
+
+[node name="FirstChoiceAction" type="Button" parent="VBoxContainer/HBoxContainer/First Choice"]
+layout_mode = 2
+text = "First Option"
+
+[node name="SecondChoice" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SC_description" type="Label" parent="VBoxContainer/HBoxContainer/SecondChoice"]
+layout_mode = 2
+text = "fdsafdasfdasfdasf"
+
+[node name="SecondChoiceAction" type="Button" parent="VBoxContainer/HBoxContainer/SecondChoice"]
+layout_mode = 2
+text = "First Option"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/First Choice/FirstChoiceAction" to="." method="_on_first_choice_action_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/SecondChoice/SecondChoiceAction" to="." method="_on_second_choice_action_pressed"]

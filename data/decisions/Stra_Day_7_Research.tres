@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://810xcuqoyrt2"]
+
+[ext_resource type="Script" uid="uid://d0wh8cdbi1wmg" path="res://data/decisions/decision_option.gd" id="1_gi3g1"]
+[ext_resource type="Script" uid="uid://ch71louiro5cx" path="res://data/decisions/Stra_Research.gd" id="2_gi3g1"]
+
+[sub_resource type="Resource" id="Resource_06adg"]
+script = ExtResource("1_gi3g1")
+description = "Trade Food for Scrap → -10 Food, +45 Scrap"
+metadata/_custom_type_script = "uid://d0wh8cdbi1wmg"
+
+[sub_resource type="Resource" id="Resource_r6xkh"]
+script = ExtResource("1_gi3g1")
+description = "Trade Energy for Food → -6 Energy, +15 Food
+"
+choice_index = 1
+metadata/_custom_type_script = "uid://d0wh8cdbi1wmg"
+
+[resource]
+script = ExtResource("2_gi3g1")
+id = "day_7"
+title = "Research Data Trade"
+description = "Another colony offers a trade via long-range comms"
+options = Array[ExtResource("1_gi3g1")]([SubResource("Resource_06adg"), SubResource("Resource_r6xkh")])
+metadata/_custom_type_script = "uid://bto2bg242177d"

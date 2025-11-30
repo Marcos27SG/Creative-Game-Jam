@@ -95,8 +95,7 @@ grow_vertical = 2
 theme = ExtResource("3_uqeha")
 theme_override_constants/line_spacing = 40
 theme_override_font_sizes/font_size = 80
-text = "S T O N E
-R E B E L L I O N"
+text = "First Dawn Protocol"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="MainMenu"]

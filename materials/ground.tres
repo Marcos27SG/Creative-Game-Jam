@@ -5,7 +5,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_xygne")
-shader_parameter/albedo = Color(0.53685045, 0.59568787, 0.67021525, 1)
+shader_parameter/albedo = Color(0.46541256, 0.5681739, 0.88356674, 1)
 shader_parameter/outline_intensity = 0.1
 shader_parameter/outline_color = Color(0.1, 0.1, 0.2, 1)
 shader_parameter/depth_threshold = 0.25

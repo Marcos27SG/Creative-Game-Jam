@@ -11,6 +11,7 @@ atlas = ExtResource("2_ewn10")
 region = Rect2(558, 28, 16, 16)
 
 [node name="GameUI" type="Control" node_paths=PackedStringArray("show_settings_button", "settings_ui")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,3 +52,8 @@ script = ExtResource("4_5synj")
 visible = false
 z_index = 10
 layout_mode = 1
+
+[node name="CurrentDay" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 17.0

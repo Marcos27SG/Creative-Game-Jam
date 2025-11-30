@@ -1,23 +1,48 @@
 extends Node
 
-signal turn_started (turn_number: int)
-signal turn_ended (turn_number: int)
-signal day_started (day_number: int)
-signal day_ended (day_number: int)
+signal turn_started(turn_number: int)
+signal turn_ended(turn_number: int)
+signal day_started(day_number: int)
+signal day_ended(day_number: int)
+signal state_changed()
 
-var current_turn: int = 0
-var current_day: int = 1
+var current_turn: int = 0:
+	set(value):
+		if current_turn != value:
+			current_turn = value
+			state_changed.emit()
+
+var current_day: int = 0:
+	set(value):
+		if current_day != value:
+			current_day = value
+			state_changed.emit()
+
+var time_of_day_index: int = 0:
+	set(value):
+		if time_of_day_index != value:
+			time_of_day_index = value
+			state_changed.emit()
+
 const TURNS_PER_DAY: int = 3
-const MAX_DAYS: int = 10
+const MAX_DAYS: int = 9
 enum TimeOfDay { DAWN, AFTERNOON, EVENING }
 
-#func _ready() -> void:
-	## Start the first turn automatically
-	#call_deferred("advance_turn")
+var current_day_and_turn: String:
+	get:
+		return "Day: %s Turn: %s Time: %s" % [current_day, current_turn, TimeOfDay.keys()[time_of_day_index]]
 
 func advance_turn() -> void:
 	turn_started.emit(current_turn + 1)
+	
+	# Store old values for comparison
+	var old_turn = current_turn
+	var old_day = current_day
+	
 	current_turn += 1
+	
+	# Update time of day based on the new turn
+	time_of_day_index = ((current_turn - 1) % TURNS_PER_DAY)
 	
 	# Process all turn-based systems
 	_process_turn()
@@ -28,24 +53,24 @@ func advance_turn() -> void:
 	var time_of_day = get_time_of_day()
 	match time_of_day:
 		TimeOfDay.DAWN:
-			print("Make the Strategy Decission")
+			Events.strategy_choice_triggered.emit(current_day)
 		TimeOfDay.AFTERNOON:
-			print("Make the Critical Decission")
-			#Events.progressDecisionEvent.emit()
+			#print("Make the Critical Decision")
+			Events.crisis_choice_triggered.emit(current_day)
 		TimeOfDay.EVENING:
-			Events.choiceBuildingEvent.emit()
-			print("Make the Critical Decission")
+			#print("Make the Critical Decision")
 			#Events.criticalDecisionEvent.emit()
+			if current_day < MAX_DAYS:
+				Events.choiceBuildingEvent.emit()
 			if current_day == MAX_DAYS:
-				#game_won.emit()
-				print("🎉 Congratulations! You've completed all 9 days!")
-	# Check if day ended
-	if current_turn % TURNS_PER_DAY == 0:
-		day_ended.emit(current_day)
+				Events.game_won.emit()
+
+	
+	# Check if day ended (after processing the turn)
+	if old_turn % TURNS_PER_DAY == 0:
+		day_ended.emit(old_day)
 		current_day += 1
 		day_started.emit(current_day)
-	
-	print("Day: ", current_day, " Turn: ", current_turn, " Time: ", TimeOfDay.keys()[time_of_day])
 
 func _process_turn() -> void:
 	# This will be handled by systems that connect to the signals
@@ -60,7 +85,7 @@ func get_time_of_day() -> TimeOfDay:
 		_: return TimeOfDay.DAWN
 
 func get_turns_remaining_in_day() -> int:
-	return TURNS_PER_DAY - (current_turn % TURNS_PER_DAY)
+	return TURNS_PER_DAY - ((current_turn - 1) % TURNS_PER_DAY)
 
 func get_time_of_day_name() -> String:
 	return TimeOfDay.keys()[get_time_of_day()]

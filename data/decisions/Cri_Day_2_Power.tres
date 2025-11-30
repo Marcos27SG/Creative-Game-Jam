@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dei64xvodwqrv"]
+
+[ext_resource type="Script" uid="uid://d0wh8cdbi1wmg" path="res://data/decisions/decision_option.gd" id="1_nwk62"]
+[ext_resource type="Script" uid="uid://c77xb8yfrsdv2" path="res://data/decisions/Cri_Power.gd" id="2_nwk62"]
+
+[sub_resource type="Resource" id="Resource_06adg"]
+script = ExtResource("1_nwk62")
+description = "\"Shut down morale buildings\" → -6 Morale, +4 Energy saved"
+metadata/_custom_type_script = "uid://d0wh8cdbi1wmg"
+
+[sub_resource type="Resource" id="Resource_r6xkh"]
+script = ExtResource("1_nwk62")
+description = "Overload the solar panels\" →
+ -15 Scrap (emergency repairs),
+ maintain Energy"
+choice_index = 1
+metadata/_custom_type_script = "uid://d0wh8cdbi1wmg"
+
+[resource]
+script = ExtResource("2_nwk62")
+id = "day_2"
+title = "Power Shortage"
+description = "Critical energy shortage detected! Systems failing"
+options = Array[ExtResource("1_nwk62")]([SubResource("Resource_06adg"), SubResource("Resource_r6xkh")])
+metadata/_custom_type_script = "uid://bto2bg242177d"

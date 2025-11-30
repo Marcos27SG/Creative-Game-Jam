@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BuildingData" load_steps=4 format=3 uid="uid://coujvlmliuxnb"]
 
-[ext_resource type="Texture2D" uid="uid://cgr8h5j5q5w30" path="res://icon.svg" id="1_xdsdp"]
+[ext_resource type="Texture2D" uid="uid://kf2opionjoto" path="res://assets/3D/Buildings/Icons/wasteRecicling.png" id="1_xdsdp"]
 [ext_resource type="ArrayMesh" uid="uid://c6hbxwg0mpmbh" path="res://assets/3D/Buildings/Moon/Buildings_Stone_Rebellion2_WasteRecicling.res" id="2_xdsdp"]
 [ext_resource type="Script" uid="uid://c15sv8n8me2d2" path="res://data/buildings/structure.gd" id="3_hpw83"]
 

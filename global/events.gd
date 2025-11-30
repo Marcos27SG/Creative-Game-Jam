@@ -15,3 +15,6 @@ signal building_clicked(building_data: BuildingData)
 
 #Events
 signal choiceBuildingEvent
+signal game_won
+signal strategy_choice_triggered(index: int)
+signal crisis_choice_triggered(index: int)

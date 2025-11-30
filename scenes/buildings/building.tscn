@@ -7,7 +7,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_64dnl"]
 size = Vector3(0.7, 0.7, 0.7)
 
-[node name="Building" type="Area3D"]
+[node name="Building" type="Area3D" groups=["buildings"]]
 script = ExtResource("1_64dnl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -24,6 +24,7 @@ visuals = NodePath("../MeshInstance3D")
 highlight_color = Color(0, 0.678566, 0.680942, 1)
 
 [node name="ResourceProduced" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Test123"

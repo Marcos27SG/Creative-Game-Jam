@@ -4,6 +4,7 @@ class_name GameUI extends Control
 @export var settings_ui: SettingsUI
 static  var _instance: GameUI
 
+@onready var current_day: Label = $CurrentDay
 
 
 static func instance() -> GameUI:
@@ -12,7 +13,11 @@ static func instance() -> GameUI:
 func _ready() -> void :
 	_connect_signals()
 	_instance = self
+	#current_day.text = TurnManager.current_day_and_turn
+	TurnManager.state_changed.connect(_on_state_changed)
 
+func _on_state_changed():
+	current_day.text = TurnManager.current_day_and_turn
 
 func _connect_signals() -> void :
 	show_settings_button.pressed.connect( func(): show_settings_ui())

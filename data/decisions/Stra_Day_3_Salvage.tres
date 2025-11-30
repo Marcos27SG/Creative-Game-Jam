@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bcritfi101nv3"]
+
+[ext_resource type="Script" uid="uid://d0wh8cdbi1wmg" path="res://data/decisions/decision_option.gd" id="1_5jf5l"]
+[ext_resource type="Script" uid="uid://bom6ymxhg7ly4" path="res://data/decisions/Stra_Salvage.gd" id="2_5jf5l"]
+
+[sub_resource type="Resource" id="Resource_06adg"]
+script = ExtResource("1_5jf5l")
+description = "Send Full Team → +35 Scrap, -5 Food (expedition rations), -1 Morale (dangerous work)"
+metadata/_custom_type_script = "uid://d0wh8cdbi1wmg"
+
+[sub_resource type="Resource" id="Resource_r6xkh"]
+script = ExtResource("1_5jf5l")
+description = "Quick Grab → +15 Scrap, -2 Food (small team, safer)"
+choice_index = 1
+metadata/_custom_type_script = "uid://d0wh8cdbi1wmg"
+
+[resource]
+script = ExtResource("2_5jf5l")
+id = "day_3"
+title = "Salvage Expedition"
+description = "\"Scouts found wreckage from previous missions"
+options = Array[ExtResource("1_5jf5l")]([SubResource("Resource_06adg"), SubResource("Resource_r6xkh")])
+metadata/_custom_type_script = "uid://bto2bg242177d"

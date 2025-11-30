@@ -10,8 +10,8 @@ static func instance() -> RunManager:
 const WORLD_SCENE := preload("res://scenes/world/world.tscn")
 const MAIN_MENU_PATH := "res://scenes/main_menu/main_menu.tscn"
 @onready var current_view: Node3D = $CurrentView
-
 @onready var world: World = $CurrentView/World
+@onready var win: Control = $UI/Win
 
 var world_scene: Node3D
 var arena_scene: Node3D
@@ -26,7 +26,7 @@ func _ready() -> void:
 	Events.save_and_quit_pressed.connect(_on_save_and_quit_pressed)
 	
 	Events.exit_to_desktop_pressed.connect(_on_exit_to_desktop_pressed)
-
+	Events.game_won.connect(_on_game_finished)
 
 var _paused_count: int = 0
 func is_paused() -> bool:
@@ -52,8 +52,7 @@ func force_unpause_game() -> void :
 	get_tree().paused = false
 	resume_background()
 	
-	
-	
+
 	
 func _on_save_and_quit_pressed() -> void :
 	#Game.instance().force_unpause_game()
@@ -74,3 +73,12 @@ func pause_background() -> void :
 
 func resume_background() -> void :
 	pass
+
+func _on_game_finished() -> void:
+	self.pause_game()
+	win.show()
+	
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

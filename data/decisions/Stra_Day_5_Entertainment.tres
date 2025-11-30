@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cid8ttlge17dn"]
+
+[ext_resource type="Script" uid="uid://d0wh8cdbi1wmg" path="res://data/decisions/decision_option.gd" id="1_6x735"]
+[ext_resource type="Script" uid="uid://chmcjri0goq8w" path="res://data/decisions/Stra_Entertainment.gd" id="2_6x735"]
+
+[sub_resource type="Resource" id="Resource_06adg"]
+script = ExtResource("1_6x735")
+description = "Host Movie Night → -3 Energy (power for broadcast), +7 Morale"
+metadata/_custom_type_script = "uid://d0wh8cdbi1wmg"
+
+[sub_resource type="Resource" id="Resource_r6xkh"]
+script = ExtResource("1_6x735")
+description = "Save Power → +3 Energy (skip it), -2 Morale (disappointed colonists)"
+choice_index = 1
+metadata/_custom_type_script = "uid://d0wh8cdbi1wmg"
+
+[resource]
+script = ExtResource("2_6x735")
+id = "day_5"
+title = "Entertainment Broadcast"
+description = "Earth sent entertainment data, but it costs bandwidth"
+options = Array[ExtResource("1_6x735")]([SubResource("Resource_06adg"), SubResource("Resource_r6xkh")])
+metadata/_custom_type_script = "uid://bto2bg242177d"

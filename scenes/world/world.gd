@@ -21,11 +21,12 @@ var click_mode := ClickMode.NONE
 @onready var world_ui: CanvasLayer = $UI
 @onready var world_camera_3d: Camera3D = $View/Camera3D
 
+#@onready var day_and_turn: Label = $UI/DayAndTurn
 
 var buildings: Array[Building] = []
 
 func _ready() -> void:
-	
+	#@day_and_turn.text = TurnManager.current_day_and_turn
 	_setup_turn_system()
 	_setup_ui()
 	building_decision.building_bought.connect(builder.add_to_structures)

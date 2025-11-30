@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://dlogcwl25w64q"]
+[gd_scene load_steps=34 format=4 uid="uid://dlogcwl25w64q"]
 
 [ext_resource type="Script" uid="uid://ct2ersxwj0nlj" path="res://scenes/world/world.gd" id="1_dlabj"]
 [ext_resource type="Script" uid="uid://0atgvdgf2fnb" path="res://scenes/world/view.gd" id="1_t5ptc"]
@@ -16,9 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://crg5ck6jvyg3l" path="res://scenes/buildings/building.tscn" id="17_bt7bg"]
 [ext_resource type="PackedScene" uid="uid://ba8k2rmp4c706" path="res://scenes/FC_Decisions/strategy_decision.tscn" id="17_t634p"]
 [ext_resource type="PackedScene" uid="uid://c1bwkr7q0oi4q" path="res://scenes/FC_Decisions/crisis_decision.tscn" id="18_6hctx"]
-[ext_resource type="Script" uid="uid://bto2bg242177d" path="res://data/decisions/decision.gd" id="19_xq18t"]
 [ext_resource type="Material" uid="uid://cw4iiauwwp475" path="res://assets/3D/Troops/MoongBuildingMaterial.tres" id="20_tytul"]
-[ext_resource type="Resource" uid="uid://bjwfyik26813w" path="res://data/decisions/Cri_Day_1_Hunger.tres" id="20_x0nq1"]
 [ext_resource type="Shader" uid="uid://csyy3vid3m3tm" path="res://liquidfill.gdshader" id="24_fymcc"]
 [ext_resource type="PackedScene" uid="uid://yxtea4mvb3fy" path="res://scenes/FC_Building_Decision/building_decision.tscn" id="29_5o5dd"]
 [ext_resource type="PackedScene" uid="uid://d3x5y4m0vcnya" path="res://scenes/buildings/Building_info.tscn" id="31_lbnhc"]
@@ -356,7 +354,6 @@ visible = false
 
 [node name="Crisis_Decision" parent="UI" instance=ExtResource("18_6hctx")]
 visible = false
-decision_pool = Array[ExtResource("19_xq18t")]([ExtResource("20_x0nq1")])
 
 [node name="BuildingSpawner" type="Node" parent="."]
 unique_name_in_owner = true

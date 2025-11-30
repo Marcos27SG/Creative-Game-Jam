@@ -21,12 +21,12 @@ func _ready() -> void:
 	get_tree().paused = false
 	continue_button.disabled = true
 	Events.settings_closed.connect(_on_return_button_pressed)
-
+	
 
 
 func _on_new_run_pressed() -> void:
 	get_tree().change_scene_to_packed(RUN)
-	
+	TurnManager.current_day = 0
 
 
 
